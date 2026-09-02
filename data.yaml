@@ -1,0 +1,10 @@
+# 咖啡豆瑕疵偵測資料集設定
+# 標籤格式為 YOLOv8-OBB (旋轉框): class x1 y1 x2 y2 x3 y3 x4 y4 (皆為正規化座標)
+# 請將此檔案放在資料集根目錄下 (與 train/ valid/ test/ 同一層)
+
+train: train/images
+val: valid/images
+test: test/images
+
+nc: 1
+names: ['NG']   # NG = 瑕疵豆 (defect)
