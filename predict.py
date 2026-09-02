@@ -1,31 +1,4 @@
-"""
-predict.py
-==========
-使用訓練好的 YOLOv8-OBB 模型，對咖啡豆影像做瑕疵偵測 (辨識)。
 
-功能
-----
-1. 支援單張圖片 / 整個資料夾 / 影片 作為輸入來源。
-2. 會把偵測結果(標好旋轉框的圖片)存到輸出資料夾。
-3. 針對每張圖片，統計偵測到的瑕疵(NG)數量，
-   並判斷這張圖裡的咖啡豆整體是「正常 OK」還是「瑕疵 NG」，
-   最後印出一份總結報表 (也會存成 CSV)。
-
-使用方式
---------
-    pip install ultralytics
-
-單張圖片:
-    python predict.py --weights runs/obb/coffee_bean_defect/weights/best.pt \\
-        --source test/images/-003_png.rf.xxxx.jpg
-
-整個資料夾:
-    python predict.py --weights runs/obb/coffee_bean_defect/weights/best.pt \\
-        --source test/images
-
-調整信心閾值 (預設0.25，數值越高越嚴格):
-    python predict.py --weights best.pt --source test/images --conf 0.4
-"""
 
 import argparse
 import csv
@@ -96,11 +69,11 @@ def summarize(results, save_dir: Path, csv_path: str):
     print("-" * 60)
     for row in rows:
         print(f"{row['image']:40s} {row['defect_count']:>6d} "
-              f"{row['avg_confidence']:>8.3f}  {row['verdict']}")
+                f"{row['avg_confidence']:>8.3f}  {row['verdict']}")
     print("-" * 60)
     total = len(rows)
     print(f"總圖片數: {total}，判定為瑕疵(NG)的圖片: {ng_image_count}，"
-          f"正常(OK): {total - ng_image_count}")
+            f"正常(OK): {total - ng_image_count}")
     print("=" * 60)
 
     # 存成 CSV
