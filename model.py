@@ -8,7 +8,7 @@ class CoffeeBeanClassifier(nn.Module):
     影像分類模型：輸入一張咖啡豆照片，輸出它屬於各個缺陷類別的分數。
     """
 
-    def __init__(self, num_classes=18, pretrained=True, arch="resnet18"):
+    def __init__(self, num_classes=18, pretrained=True, arch="resnet18", dropout=0.0):
         super().__init__()
         self.arch = arch
 
@@ -32,6 +32,9 @@ class CoffeeBeanClassifier(nn.Module):
         #    backbone 輸出的是 512 個數字（圖片的特徵摘要），
         #    這裡用一個全新的線性層，把 512 個數字轉成 num_classes 個分數。
         #    這一層是模型裡「唯一需要從頭學」的部分，因為 ImageNet 沒教過咖啡豆缺陷長怎樣。
+        #    前面加 Dropout：訓練時隨機丟掉一部分特徵，防止模型太依賴少數特徵而 overfitting。
+        #    Dropout 沒有參數，所以不影響權重檔的相容性；推論（eval）時自動關閉。
+        self.dropout = nn.Dropout(dropout)
         self.classifier = nn.Linear(feat_dim, num_classes)
 
     def forward(self, x):
@@ -45,7 +48,7 @@ class CoffeeBeanClassifier(nn.Module):
         # 把 (批次大小, 512, 1, 1) 攤平成 (批次大小, 512)，
         # 這樣才能丟進下面的線性層做矩陣運算
 
-        return self.classifier(features)
+        return self.classifier(self.dropout(features))
         # 回傳形狀 (批次大小, num_classes) 的分數 (logits)，
         # 分數最高的那個類別，就是模型認為最可能的答案
 

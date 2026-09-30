@@ -164,7 +164,7 @@ def main():
     parser.add_argument("--split", type=Path, default=PROJECT_ROOT / "data" / "splits.json",
                         help="Split file created by make_split.py")
     parser.add_argument("--out-dir", type=Path, default=None,
-                        help="Output folder (default: runs/<timestamp>)")
+                        help="Output folder (default: data/train_results/<timestamp>)")
     parser.add_argument("--epochs", type=int, default=30)       # 整份訓練資料最多重複看幾遍
     parser.add_argument("--patience", type=int, default=8)      # 驗證分數連續幾個 epoch 沒進步就提早停止
     parser.add_argument("--batch-size", type=int, default=16)   # 一次丟幾張圖片進模型
@@ -172,6 +172,9 @@ def main():
     parser.add_argument("--img-size", type=int, default=224)    # 圖片統一縮放成幾 x 幾
     parser.add_argument("--arch", type=str, default="resnet50",
                         choices=["resnet18", "resnet50", "efficientnet_b0"])  # backbone 架構
+    parser.add_argument("--dropout", type=float, default=0.5)          # 分類頭前的 Dropout 比例
+    parser.add_argument("--weight-decay", type=float, default=0.05)    # 參數懲罰強度，越大越抑制 overfitting
+    parser.add_argument("--label-smoothing", type=float, default=0.1)  # 標籤平滑：不讓模型對答案過度自信
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--workers", type=int, default=min(4, os.cpu_count() or 1))
     parser.add_argument("--no-class-weights", action="store_true", help="Disable class-balanced loss")
@@ -193,7 +196,7 @@ def main():
     num_classes = len(class_names)
 
     # 每次訓練都存到獨立的資料夾，不會覆蓋上一次的結果，方便比較不同實驗
-    out_dir = args.out_dir or PROJECT_ROOT / "runs" / datetime.now().strftime("%Y%m%d-%H%M%S")
+    out_dir = args.out_dir or PROJECT_ROOT / "data" / "train_results" / datetime.now().strftime("%Y%m%d-%H%M%S")
     out_dir.mkdir(parents=True, exist_ok=True)
     with open(out_dir / "config.json", "w", encoding="utf-8") as f:
         json.dump({k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()}, f, indent=2)
@@ -220,7 +223,8 @@ def main():
     test_loader = DataLoader(test_dataset, shuffle=False, **loader_kwargs)
 
     # 建立模型，並搬到指定的裝置（CPU 或 GPU）上
-    model = CoffeeBeanClassifier(num_classes=num_classes, arch=args.arch).to(device)
+    model = CoffeeBeanClassifier(num_classes=num_classes, arch=args.arch,
+                                 dropout=args.dropout).to(device)
 
     # loss 函式：CrossEntropyLoss 是分類任務最常用的損失函數。
     # 類別權重：圖片越少的類別權重越高，避免模型只顧著猜「圖片多的類別」。
@@ -229,11 +233,11 @@ def main():
         counts = np.bincount(train_dataset.targets(), minlength=num_classes).astype(float)
         weights = counts.sum() / (num_classes * np.maximum(counts, 1))
         class_weights = torch.tensor(weights, dtype=torch.float32, device=device)
-    criterion = nn.CrossEntropyLoss(weight=class_weights)
+    criterion = nn.CrossEntropyLoss(weight=class_weights, label_smoothing=args.label_smoothing)
 
     # optimizer：根據 loss.backward() 算出來的梯度，實際去調整模型參數
     # weight_decay 是一種讓參數不要長得太誇張的正則化手法，避免 overfitting
-    optimizer = optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-4)
+    optimizer = optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
 
     # scheduler：如果驗證 loss 連續 3 個 epoch 都沒進步，就自動把 learning rate 減半，
     # 讓模型在快收斂時用更小的步伐微調，避免一直在最佳解附近震盪。

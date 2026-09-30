@@ -48,13 +48,14 @@ def build_transform(image_size, train):
         # 讓模型看到「同一顆豆子的不同角度、大小、亮度版本」，避免死記照片、提升泛化能力。
         # 咖啡豆拍照沒有固定方向，所以上下翻轉、任意旋轉都是合理的變化。
         return transforms.Compose([
-            transforms.RandomResizedCrop(image_size, scale=(0.8, 1.0), ratio=(0.9, 1.1)),  # 隨機裁切一部分再縮放
+            transforms.RandomResizedCrop(image_size, scale=(0.6, 1.0), ratio=(0.85, 1.15)),  # 隨機裁切一部分再縮放
             transforms.RandomHorizontalFlip(),                                            # 隨機左右翻轉
             transforms.RandomVerticalFlip(),                                              # 隨機上下翻轉
             transforms.RandomRotation(degrees=30),                                        # 隨機旋轉 ±30 度
-            transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.05),  # 隨機調整亮度/對比/飽和度/色調
+            transforms.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.2, hue=0.05),  # 隨機調整亮度/對比/飽和度/色調
             transforms.ToTensor(),                                                        # 圖片轉成 PyTorch 看得懂的張量 (Tensor)
             transforms.Normalize(mean=IMAGENET_MEAN, std=IMAGENET_STD),
+            transforms.RandomErasing(p=0.25, scale=(0.02, 0.15), value="random"),         # 隨機遮住一小塊，逼模型不能只靠單一局部特徵
         ])
 
     # 驗證/測試/推論用：不做隨機變化，每次看同一張圖都應該得到一樣的結果
