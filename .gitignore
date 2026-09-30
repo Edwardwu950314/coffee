@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# 資料與訓練產出（體積大，不進版本控制）
+data/*
+!data/splits.json
+runs/
+weights/
+*.pt
+*.pth
+result_output.jpg
+baseline_loss.png
+
+# 舊版 YOLO 專案留下的資料集
+VOCdevkit/
+
+# 編輯器
+.vscode/

@@ -1,0 +1,7 @@
+# GPU 版 PyTorch 請依 CUDA 版本安裝，例如：
+#   pip install torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cu121
+torch==2.5.1
+torchvision==0.20.1
+numpy>=1.26
+pillow>=10.0
+matplotlib>=3.8
