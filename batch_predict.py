@@ -25,6 +25,8 @@ def main():
                         help="Class folders; only needed for legacy checkpoints without class names")
     parser.add_argument("--num-images", type=int, default=5)
     parser.add_argument("--all", action="store_true", help="Predict every image instead of a random sample")
+    parser.add_argument("--per-class", type=int, default=None,
+                        help="Sample N images from every class folder (overrides --num-images)")
     parser.add_argument("--seed", type=int, default=None)
     args = parser.parse_args()
 
@@ -36,12 +38,25 @@ def main():
     # random.sample 不會抽到重複的圖片；min() 是避免要求的張數比實際圖片還多時噴錯
     if args.all:
         selected = all_images
+    elif args.per_class:
+        rng = random.Random(args.seed)
+        by_class = {}
+        for p in all_images:
+            by_class.setdefault(p.parent.name, []).append(p)
+        selected = [p for imgs in by_class.values() for p in rng.sample(imgs, min(args.per_class, len(imgs)))]
     else:
-        selected = random.Random(args.seed).sample(all_images, min(args.num_images, len(all_images)))
+        # 預設：固定有 2~3 張 Normal，其餘從瑕疵類別抽，再打散順序
+        rng = random.Random(args.seed)
+        normal = [p for p in all_images if p.parent.name == "Normal"]
+        others = [p for p in all_images if p.parent.name != "Normal"]
+        n_normal = min(rng.randint(2, 3), args.num_images, len(normal))
+        selected = rng.sample(normal, n_normal) + rng.sample(others, min(args.num_images - n_normal, len(others)))
+        rng.shuffle(selected)
 
     # 模型只載入一次，所有圖片一起批次預測
     predictor = Predictor(args.model, args.class_dir)
     print(f"Model: {predictor.model_path}")
+    binary = set(predictor.class_names) == {"bad", "good"}
     images = [load_image(p) for p in selected]
     predictions = predictor.predict(images)
 
@@ -49,7 +64,9 @@ def main():
     correct = 0
     for idx, (path, image, (label, score)) in enumerate(zip(selected, images, predictions), 1):
         actual = path.parent.name  # 圖片所在的資料夾名稱就是正確答案
-        ok = label == actual
+        # 二元模型（bad/good）：Normal 資料夾算 good，其餘瑕疵類別都算 bad
+        expected = ("good" if actual == "Normal" else "bad") if binary else actual
+        ok = label == expected
         correct += ok
         mark = "OK " if ok else "BAD"
         print(f"[{idx}/{len(selected)}] {mark} {path.name}: predicted={label} ({score:.2%}) actual={actual}")
