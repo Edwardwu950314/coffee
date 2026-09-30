@@ -139,3 +139,11 @@ python batch_predict.py --all
 - 擴充資料量，特別是 test 集與 Normal 類別
 - 嘗試 ResNet50 / EfficientNet / ConvNeXt 等 backbone
 - 用 k-fold cross-validation 取得更穩定的評估
+
+---
+
+## 下週目標
+
+- [ ] **補拍自己的豆子**：好豆與壞豆都要，目前自拍好豆只剩 35 張（測試集僅 6 張），無法可靠評估實際表現。拍完後裁成單顆、統一 500×500，依同樣標準標好壞，併入 `data/merged/`。
+- [ ] **統一好壞標準**：「偏黃算不算壞」還沒決定（影響 USK 裡約 60 張壞豆漏抓）；「銀皮斑塊算壞豆」目前只套用在自拍資料，USK 的好豆尚未依此複查。
+- [ ] **用新資料重訓並評估**：以 ResNet50 重訓（目前測試 accuracy 94.7%、macro-F1 0.936，`runs/merged_resnet50_v2/`），分開看自拍與 USK 的好豆／壞豆表現。

@@ -170,6 +170,8 @@ def main():
     parser.add_argument("--batch-size", type=int, default=16)   # 一次丟幾張圖片進模型
     parser.add_argument("--lr", type=float, default=1e-4)       # learning rate：每次調整參數的步伐大小
     parser.add_argument("--img-size", type=int, default=224)    # 圖片統一縮放成幾 x 幾
+    parser.add_argument("--arch", type=str, default="resnet50",
+                        choices=["resnet18", "resnet50", "efficientnet_b0"])  # backbone 架構
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--workers", type=int, default=min(4, os.cpu_count() or 1))
     parser.add_argument("--no-class-weights", action="store_true", help="Disable class-balanced loss")
@@ -218,7 +220,7 @@ def main():
     test_loader = DataLoader(test_dataset, shuffle=False, **loader_kwargs)
 
     # 建立模型，並搬到指定的裝置（CPU 或 GPU）上
-    model = CoffeeBeanClassifier(num_classes=num_classes).to(device)
+    model = CoffeeBeanClassifier(num_classes=num_classes, arch=args.arch).to(device)
 
     # loss 函式：CrossEntropyLoss 是分類任務最常用的損失函數。
     # 類別權重：圖片越少的類別權重越高，避免模型只顧著猜「圖片多的類別」。

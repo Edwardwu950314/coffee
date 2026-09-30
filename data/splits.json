@@ -1,22 +1,19 @@
 {
  "class_names": [
+  "Black",
   "Broken",
   "Cut",
   "Dry Cherry",
   "Fade",
   "Floater",
-  "Full Black",
-  "Full Sour",
   "Fungus Damage",
   "Husk",
   "Immature",
+  "Insect Damage",
   "Normal",
   "Parchment",
-  "Partial Black",
-  "Partial Sour",
-  "Severe Insect Damage",
   "Shell",
-  "Slight Insect Damage",
+  "Sour",
   "Withered"
  ],
  "seed": 42,
@@ -24,1908 +21,1908 @@
  "splits": {
   "train": [
    [
+    "data/resized/train/Normal/Normal_01.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_03.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_05.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_06.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_07.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_08.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_09.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_10.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_11.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_13.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_14.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_15.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_17.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_18.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_19.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_20.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_21.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_22.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_24.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_25.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_26.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_27.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_28.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_29.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_30.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_31.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_32.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_35.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_36.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_37.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_38.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_39.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_40.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_41.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_42.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_43.jpg",
+    10
+   ],
+   [
+    "data/resized/train/Normal/Normal_45.jpg",
+    10
+   ],
+   [
     "data/train/Broken/Broken_01.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_02.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_03.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_04.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_05.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_06.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_07.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_08.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_09.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_10.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_11.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_13.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_14.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_15.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_16.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_18.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_19.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_20.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_22.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_23.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_25.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_26.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_27.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_28.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_29.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_30.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_32.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_33.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_34.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_35.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_36.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_37.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_38.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_39.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_40.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_41.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_42.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_43.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_44.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_45.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_46.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_47.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_48.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_49.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_50.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_53.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_54.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_56.jpg",
-    0
+    1
    ],
    [
     "data/train/Cut/Cut_02.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_03.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_04.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_05.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_06.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_07.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_08.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_09.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_10.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_11.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_12.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_13.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_14.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_15.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_16.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_18.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_19.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_21.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_22.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_23.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_24.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_25.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_26.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_27.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_28.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_29.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_30.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_31.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_33.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_35.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_36.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_37.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_38.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_39.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_40.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_41.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_42.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_43.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_45.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_46.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_47.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_48.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_51.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_52.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_53.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_54.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_55.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_56.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_57.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_58.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_60.jpg",
-    1
+    2
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_01.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_02.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_03.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_04.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_05.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_06.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_08.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_09.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_10.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_11.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_12.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_13.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_14.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_15.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_17.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_18.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_19.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_20.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_21.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_22.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_23.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_24.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_26.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_28.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_29.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_30.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_31.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_32.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_33.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_34.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_35.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_36.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_38.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_39.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_40.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_41.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_42.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_44.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_45.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_46.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_48.jpg",
-    2
+    3
    ],
    [
     "data/train/Fade/Fade_01.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_03.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_04.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_05.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_06.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_07.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_09.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_10.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_11.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_12.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_13.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_14.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_15.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_16.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_17.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_18.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_21.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_22.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_23.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_24.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_26.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_27.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_28.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_29.jpg",
-    3
+    4
    ],
    [
     "data/train/Floater/Floater_01.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_02.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_04.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_05.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_06.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_07.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_09.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_10.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_11.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_12.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_13.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_14.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_15.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_16.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_17.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_18.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_20.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_23.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_24.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_25.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_26.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_27.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_28.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_29.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_30.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_31.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_32.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_34.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_35.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_36.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_37.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_38.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_39.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_40.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_41.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_42.jpg",
-    4
+    5
    ],
    [
     "data/train/Full Black/Full Black_02.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_03.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_05.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_06.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_07.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_08.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_09.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_10.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_11.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_12.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_13.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_14.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_15.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_16.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_17.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_18.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_19.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_20.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_21.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_22.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_24.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_25.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_26.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_27.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_28.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_29.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_32.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_33.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_34.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_35.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Sour/Full Sour_01.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_02.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_04.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_05.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_06.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_07.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_08.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_09.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_10.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_11.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_12.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_14.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_15.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_16.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_17.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_18.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_19.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_21.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_22.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_23.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_24.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_25.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_26.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_27.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_28.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_29.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_30.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_31.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_32.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_33.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_35.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_36.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_37.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_38.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_40.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_41.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_42.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_43.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_44.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_45.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_46.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_48.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_51.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_52.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_53.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_54.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_56.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_57.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_58.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_59.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_60.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_62.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_63.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_64.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_65.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_66.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_67.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_68.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_69.jpg",
-    6
+    13
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_01.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_02.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_03.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_04.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_05.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_06.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_07.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_08.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_09.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_10.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_11.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_12.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_14.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_15.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_16.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_17.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_18.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_20.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_21.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_23.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_25.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_26.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_27.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_28.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_29.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_30.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_31.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_32.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_33.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_34.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_35.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_37.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_38.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_39.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_40.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_41.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_42.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_43.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_44.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_45.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_46.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_47.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_48.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_49.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_50.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_51.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_52.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_53.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_54.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_55.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_56.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_57.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_58.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_59.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_60.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_62.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_65.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_67.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_69.jpg",
-    7
+    6
    ],
    [
     "data/train/Husk/Husk_01.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_02.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_03.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_04.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_05.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_06.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_09.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_10.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_11.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_12.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_13.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_14.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_15.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_17.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_18.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_19.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_20.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_22.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_23.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_24.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_25.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_26.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_27.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_28.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_29.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_30.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_31.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_32.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_33.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_34.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_35.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_38.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_39.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_40.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_41.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_42.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_43.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_44.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_45.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_47.jpg",
-    8
+    7
    ],
    [
     "data/train/Immature/Immature_01.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_02.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_03.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_04.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_05.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_07.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_09.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_10.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_11.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_13.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_14.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_15.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_16.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_17.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_18.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_19.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_21.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_22.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_23.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_24.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_33.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_38.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_39.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_40.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_41.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_42.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_43.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_44.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_45.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_47.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_48.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_50.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_51.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_52.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_53.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_54.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_55.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_57.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_58.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_60.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_61.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_62.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_63.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_64.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_65.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_66.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_67.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_68.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_69.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_70.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_72.jpg",
-    9
-   ],
-   [
-    "data/train/Normal/Normal_01.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_03.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_05.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_06.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_07.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_08.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_09.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_10.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_11.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_13.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_14.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_15.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_17.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_18.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_19.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_20.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_21.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_22.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_24.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_25.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_26.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_27.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_28.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_29.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_30.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_31.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_32.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_35.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_36.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_37.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_38.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_39.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_40.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_41.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_42.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_43.jpg",
-    10
-   ],
-   [
-    "data/train/Normal/Normal_45.jpg",
-    10
+    8
    ],
    [
     "data/train/Parchment/Parchment_01.jpg",
@@ -2093,203 +2090,203 @@
    ],
    [
     "data/train/Partial Black/Partial Black_01.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_03.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_04.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_05.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_07.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_08.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_09.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_11.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_13.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_14.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_16.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_17.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_18.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_19.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_20.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_21.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_22.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_23.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_24.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_25.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_26.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_27.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_28.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_29.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_30.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_31.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_32.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_33.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_34.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_35.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_36.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_38.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_39.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_40.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_42.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_43.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_44.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_45.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_47.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_48.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_49.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_50.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_51.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_52.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_54.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_55.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_56.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_57.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_58.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_59.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Sour/Partial Sour_01.jpg",
@@ -2420,10 +2417,6 @@
     13
    ],
    [
-    "data/train/Partial Sour/Partial sour_39.jpg",
-    13
-   ],
-   [
     "data/train/Partial Sour/Partial Sour_40.jpg",
     13
    ],
@@ -2440,1009 +2433,3921 @@
     13
    ],
    [
+    "data/train/Partial Sour/Partial sour_39.jpg",
+    13
+   ],
+   [
     "data/train/Severe Insect Damage/Severe Insect Damage_01.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_02.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_03.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_04.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_05.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_06.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_07.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_09.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_10.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_11.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_12.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_13.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_15.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_16.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_17.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_18.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_19.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_20.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_21.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_22.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_23.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_25.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_26.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_27.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_28.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_29.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_30.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_31.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_32.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_33.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_34.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_35.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_37.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_38.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_40.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_41.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_42.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_43.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_45.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_47.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_48.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_49.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_50.jpg",
-    14
+    9
    ],
    [
     "data/train/Shell/Shell_01.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_02.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_03.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_04.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_05.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_06.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_07.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_08.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_09.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_11.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_12.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_14.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_15.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_16.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_17.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_18.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_19.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_20.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_21.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_22.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_23.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_24.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_25.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_27.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_28.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_29.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_30.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_32.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_33.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_35.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_36.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_37.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_39.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_40.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_41.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_42.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_43.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_44.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_45.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_46.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_48.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_49.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_51.jpg",
-    15
+    12
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_01.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_03.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_05.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_06.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_07.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_08.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_09.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_10.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_12.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_13.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_14.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_16.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_17.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_18.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_19.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_20.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_21.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_22.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_23.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_24.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_26.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_27.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_28.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_29.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_31.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_32.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_34.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_35.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_36.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_37.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_38.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_39.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_40.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_41.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_42.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_43.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_44.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_45.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_46.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_47.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_48.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_49.jpg",
-    16
+    9
    ],
    [
     "data/train/Withered/Withered_01.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_02.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_03.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_04.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_05.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_06.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_07.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_08.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_09.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_10.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_12.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_13.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_14.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_15.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_16.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_18.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_19.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_20.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_21.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_22.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_23.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_24.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_25.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_27.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_28.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_29.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_30.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_31.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_33.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_34.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_35.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_38.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_39.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_40.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_41.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_42.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_43.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_44.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_45.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_46.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_48.jpg",
-    17
+    14
+   ],
+   [
+    "data/train_aug/Black/Black_aug000.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug001.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug002.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug003.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug004.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug005.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug006.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug007.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug008.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug009.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug010.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug011.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug012.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug013.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug014.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug015.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug016.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug017.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug018.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Black/Black_aug019.jpg",
+    0
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug000.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug001.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug002.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug003.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug004.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug005.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug006.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug007.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug008.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug009.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug010.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug011.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug012.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug013.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug014.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug015.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug016.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug017.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug018.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug019.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug020.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug021.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug022.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug023.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug024.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug025.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug026.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug027.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug028.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug029.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug030.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug031.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug032.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug033.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug034.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug035.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug036.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug037.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug038.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug039.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug040.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug041.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug042.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug043.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug044.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug045.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug046.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug047.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug048.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug049.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug050.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Broken/Broken_aug051.jpg",
+    1
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug000.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug001.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug002.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug003.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug004.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug005.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug006.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug007.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug008.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug009.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug010.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug011.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug012.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug013.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug014.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug015.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug016.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug017.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug018.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug019.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug020.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug021.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug022.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug023.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug024.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug025.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug026.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug027.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug028.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug029.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug030.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug031.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug032.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug033.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug034.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug035.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug036.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug037.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug038.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug039.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug040.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug041.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug042.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug043.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug044.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug045.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug046.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug047.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Cut/Cut_aug048.jpg",
+    2
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug000.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug001.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug002.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug003.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug004.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug005.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug006.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug007.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug008.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug009.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug010.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug011.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug012.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug013.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug014.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug015.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug016.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug017.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug018.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug019.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug020.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug021.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug022.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug023.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug024.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug025.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug026.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug027.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug028.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug029.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug030.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug031.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug032.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug033.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug034.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug035.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug036.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug037.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug038.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug039.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug040.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug041.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug042.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug043.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug044.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug045.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug046.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug047.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug048.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug049.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug050.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug051.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug052.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug053.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug054.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug055.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug056.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug057.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Dry Cherry/Dry Cherry_aug058.jpg",
+    3
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug000.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug001.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug002.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug003.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug004.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug005.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug006.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug007.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug008.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug009.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug010.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug011.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug012.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug013.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug014.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug015.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug016.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug017.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug018.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug019.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug020.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug021.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug022.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug023.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug024.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug025.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug026.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug027.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug028.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug029.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug030.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug031.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug032.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug033.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug034.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug035.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug036.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug037.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug038.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug039.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug040.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug041.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug042.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug043.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug044.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug045.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug046.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug047.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug048.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug049.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug050.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug051.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug052.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug053.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug054.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug055.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug056.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug057.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug058.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug059.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug060.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug061.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug062.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug063.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug064.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug065.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug066.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug067.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug068.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug069.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug070.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug071.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug072.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug073.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug074.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Fade/Fade_aug075.jpg",
+    4
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug000.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug001.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug002.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug003.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug004.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug005.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug006.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug007.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug008.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug009.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug010.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug011.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug012.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug013.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug014.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug015.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug016.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug017.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug018.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug019.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug020.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug021.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug022.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug023.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug024.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug025.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug026.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug027.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug028.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug029.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug030.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug031.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug032.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug033.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug034.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug035.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug036.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug037.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug038.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug039.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug040.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug041.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug042.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug043.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug044.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug045.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug046.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug047.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug048.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug049.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug050.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug051.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug052.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug053.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug054.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug055.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug056.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug057.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug058.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug059.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug060.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug061.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug062.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Floater/Floater_aug063.jpg",
+    5
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug000.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug001.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug002.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug003.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug004.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug005.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug006.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug007.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug008.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug009.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug010.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug011.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug012.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug013.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug014.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug015.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug016.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug017.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug018.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug019.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug020.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug021.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug022.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug023.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug024.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug025.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug026.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug027.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug028.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug029.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug030.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug031.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug032.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug033.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug034.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug035.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug036.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug037.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug038.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug039.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Fungus Damage/Fungus Damage_aug040.jpg",
+    6
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug000.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug001.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug002.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug003.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug004.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug005.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug006.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug007.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug008.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug009.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug010.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug011.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug012.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug013.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug014.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug015.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug016.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug017.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug018.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug019.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug020.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug021.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug022.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug023.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug024.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug025.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug026.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug027.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug028.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug029.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug030.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug031.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug032.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug033.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug034.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug035.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug036.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug037.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug038.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug039.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug040.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug041.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug042.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug043.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug044.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug045.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug046.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug047.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug048.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug049.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug050.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug051.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug052.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug053.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug054.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug055.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug056.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug057.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug058.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Husk/Husk_aug059.jpg",
+    7
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug000.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug001.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug002.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug003.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug004.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug005.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug006.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug007.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug008.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug009.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug010.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug011.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug012.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug013.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug014.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug015.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug016.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug017.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug018.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug019.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug020.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug021.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug022.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug023.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug024.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug025.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug026.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug027.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug028.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug029.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug030.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug031.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug032.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug033.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug034.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug035.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug036.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug037.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug038.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug039.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug040.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug041.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug042.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug043.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug044.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug045.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug046.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug047.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Immature/Immature_aug048.jpg",
+    8
+   ],
+   [
+    "data/train_aug/Insect Damage/Insect Damage_aug000.jpg",
+    9
+   ],
+   [
+    "data/train_aug/Insect Damage/Insect Damage_aug001.jpg",
+    9
+   ],
+   [
+    "data/train_aug/Insect Damage/Insect Damage_aug002.jpg",
+    9
+   ],
+   [
+    "data/train_aug/Insect Damage/Insect Damage_aug003.jpg",
+    9
+   ],
+   [
+    "data/train_aug/Insect Damage/Insect Damage_aug004.jpg",
+    9
+   ],
+   [
+    "data/train_aug/Insect Damage/Insect Damage_aug005.jpg",
+    9
+   ],
+   [
+    "data/train_aug/Insect Damage/Insect Damage_aug006.jpg",
+    9
+   ],
+   [
+    "data/train_aug/Insect Damage/Insect Damage_aug007.jpg",
+    9
+   ],
+   [
+    "data/train_aug/Insect Damage/Insect Damage_aug008.jpg",
+    9
+   ],
+   [
+    "data/train_aug/Insect Damage/Insect Damage_aug009.jpg",
+    9
+   ],
+   [
+    "data/train_aug/Insect Damage/Insect Damage_aug010.jpg",
+    9
+   ],
+   [
+    "data/train_aug/Insect Damage/Insect Damage_aug011.jpg",
+    9
+   ],
+   [
+    "data/train_aug/Insect Damage/Insect Damage_aug012.jpg",
+    9
+   ],
+   [
+    "data/train_aug/Insect Damage/Insect Damage_aug013.jpg",
+    9
+   ],
+   [
+    "data/train_aug/Insect Damage/Insect Damage_aug014.jpg",
+    9
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug000.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug001.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug002.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug003.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug004.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug005.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug006.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug007.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug008.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug009.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug010.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug011.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug012.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug013.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug014.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug015.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug016.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug017.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug018.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug019.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug020.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug021.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug022.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug023.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug024.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug025.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug026.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug027.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug028.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug029.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug030.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug031.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug032.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug033.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug034.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug035.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug036.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug037.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug038.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug039.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug040.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug041.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug042.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug043.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug044.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug045.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug046.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug047.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug048.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug049.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug050.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug051.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug052.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug053.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug054.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug055.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug056.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug057.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug058.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug059.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug060.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug061.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Normal/Normal_aug062.jpg",
+    10
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug000.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug001.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug002.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug003.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug004.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug005.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug006.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug007.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug008.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug009.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug010.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug011.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug012.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug013.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug014.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug015.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug016.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug017.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug018.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug019.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug020.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug021.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug022.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug023.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug024.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug025.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug026.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug027.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug028.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug029.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug030.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug031.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug032.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug033.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug034.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug035.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug036.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug037.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug038.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug039.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug040.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug041.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug042.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug043.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug044.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug045.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug046.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug047.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug048.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug049.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug050.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug051.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug052.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug053.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug054.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug055.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug056.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug057.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Parchment/Parchment_aug058.jpg",
+    11
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug000.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug001.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug002.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug003.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug004.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug005.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug006.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug007.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug008.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug009.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug010.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug011.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug012.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug013.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug014.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug015.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug016.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug017.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug018.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug019.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug020.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug021.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug022.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug023.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug024.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug025.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug026.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug027.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug028.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug029.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug030.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug031.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug032.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug033.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug034.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug035.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug036.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug037.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug038.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug039.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug040.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug041.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug042.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug043.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug044.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug045.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug046.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug047.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug048.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug049.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug050.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug051.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug052.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug053.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug054.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug055.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Shell/Shell_aug056.jpg",
+    12
+   ],
+   [
+    "data/train_aug/Sour/Sour_aug000.jpg",
+    13
+   ],
+   [
+    "data/train_aug/Sour/Sour_aug001.jpg",
+    13
+   ],
+   [
+    "data/train_aug/Sour/Sour_aug002.jpg",
+    13
+   ],
+   [
+    "data/train_aug/Sour/Sour_aug003.jpg",
+    13
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug000.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug001.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug002.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug003.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug004.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug005.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug006.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug007.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug008.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug009.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug010.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug011.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug012.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug013.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug014.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug015.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug016.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug017.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug018.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug019.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug020.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug021.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug022.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug023.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug024.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug025.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug026.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug027.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug028.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug029.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug030.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug031.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug032.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug033.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug034.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug035.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug036.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug037.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug038.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug039.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug040.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug041.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug042.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug043.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug044.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug045.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug046.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug047.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug048.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug049.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug050.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug051.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug052.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug053.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug054.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug055.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug056.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug057.jpg",
+    14
+   ],
+   [
+    "data/train_aug/Withered/Withered_aug058.jpg",
+    14
    ]
   ],
   "val": [
    [
     "data/train/Broken/Broken_12.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_17.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_21.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_24.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_31.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_51.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_52.jpg",
-    0
+    1
    ],
    [
     "data/train/Broken/Broken_55.jpg",
-    0
+    1
    ],
    [
     "data/train/Cut/Cut_01.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_17.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_20.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_32.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_34.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_44.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_49.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_50.jpg",
-    1
+    2
    ],
    [
     "data/train/Cut/Cut_59.jpg",
-    1
+    2
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_07.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_16.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_25.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_27.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_37.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_43.jpg",
-    2
+    3
    ],
    [
     "data/train/Dry Cherry/Dry Cherry_47.jpg",
-    2
+    3
    ],
    [
     "data/train/Fade/Fade_02.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_19.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_20.jpg",
-    3
+    4
    ],
    [
     "data/train/Fade/Fade_25.jpg",
-    3
+    4
    ],
    [
     "data/train/Floater/Floater_03.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_08.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_19.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_21.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_22.jpg",
-    4
+    5
    ],
    [
     "data/train/Floater/Floater_33.jpg",
-    4
+    5
    ],
    [
     "data/train/Full Black/Full Black_01.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_04.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_23.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_30.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Black/Full Black_31.jpg",
-    5
+    0
    ],
    [
     "data/train/Full Sour/Full Sour_03.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_13.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_20.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_34.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_39.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_47.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_49.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_50.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_55.jpg",
-    6
+    13
    ],
    [
     "data/train/Full Sour/Full Sour_61.jpg",
-    6
+    13
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_13.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_19.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_22.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_24.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_36.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_61.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_63.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_64.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_66.jpg",
-    7
+    6
    ],
    [
     "data/train/Fungus Damage/Fungus Damage_68.jpg",
-    7
+    6
    ],
    [
     "data/train/Husk/Husk_07.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_08.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_16.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_21.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_36.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_37.jpg",
-    8
+    7
    ],
    [
     "data/train/Husk/Husk_46.jpg",
-    8
+    7
    ],
    [
     "data/train/Immature/Immature_06.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_08.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_20.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_32.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_46.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_49.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_56.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_59.jpg",
-    9
+    8
    ],
    [
     "data/train/Immature/Immature_71.jpg",
-    9
+    8
    ],
    [
-    "data/train/Normal/Normal_02.jpg",
+    "data/resized/train/Normal/Normal_02.jpg",
     10
    ],
    [
-    "data/train/Normal/Normal_04.jpg",
+    "data/resized/train/Normal/Normal_04.jpg",
     10
    ],
    [
-    "data/train/Normal/Normal_12.jpg",
+    "data/resized/train/Normal/Normal_12.jpg",
     10
    ],
    [
-    "data/train/Normal/Normal_16.jpg",
+    "data/resized/train/Normal/Normal_16.jpg",
     10
    ],
    [
-    "data/train/Normal/Normal_33.jpg",
+    "data/resized/train/Normal/Normal_33.jpg",
     10
    ],
    [
-    "data/train/Normal/Normal_34.jpg",
+    "data/resized/train/Normal/Normal_34.jpg",
     10
    ],
    [
-    "data/train/Normal/Normal_44.jpg",
+    "data/resized/train/Normal/Normal_44.jpg",
     10
    ],
    [
@@ -3475,39 +6380,39 @@
    ],
    [
     "data/train/Partial Black/Partial Black_02.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_06.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_10.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_12.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_15.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_37.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_41.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_46.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Black/Partial Black_53.jpg",
-    12
+    0
    ],
    [
     "data/train/Partial Sour/Partial Sour_04.jpg",
@@ -3535,388 +6440,388 @@
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_08.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_14.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_24.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_36.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_39.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_44.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_46.jpg",
-    14
+    9
    ],
    [
     "data/train/Severe Insect Damage/Severe Insect Damage_51.jpg",
-    14
+    9
    ],
    [
     "data/train/Shell/Shell_10.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_13.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_26.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_31.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_34.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_38.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_47.jpg",
-    15
+    12
    ],
    [
     "data/train/Shell/Shell_50.jpg",
-    15
+    12
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_02.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_04.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_11.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_15.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_25.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_30.jpg",
-    16
+    9
    ],
    [
     "data/train/Slight Insect Damage/Slight Insect Damage_33.jpg",
-    16
+    9
    ],
    [
     "data/train/Withered/Withered_11.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_17.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_26.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_32.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_36.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_37.jpg",
-    17
+    14
    ],
    [
     "data/train/Withered/Withered_47.jpg",
-    17
+    14
    ]
   ],
   "test": [
    [
     "data/test/Broken/Broken_57.jpg",
-    0
+    1
    ],
    [
     "data/test/Broken/Broken_58.jpg",
-    0
+    1
    ],
    [
     "data/test/Broken/Broken_59.jpg",
-    0
+    1
    ],
    [
     "data/test/Broken/Broken_60.jpg",
-    0
+    1
    ],
    [
     "data/test/Broken/Broken_61.jpg",
-    0
+    1
    ],
    [
     "data/test/Broken/Broken_62.jpg",
-    0
+    1
    ],
    [
     "data/test/Cut/Cut_61.jpg",
-    1
+    2
    ],
    [
     "data/test/Cut/Cut_62.jpg",
-    1
+    2
    ],
    [
     "data/test/Cut/Cut_63.jpg",
-    1
+    2
    ],
    [
     "data/test/Cut/Cut_64.jpg",
-    1
+    2
    ],
    [
     "data/test/Cut/Cut_65.jpg",
-    1
+    2
    ],
    [
     "data/test/Cut/Cut_66.jpg",
-    1
+    2
    ],
    [
     "data/test/Dry Cherry/Dry Cherry_49.jpg",
-    2
+    3
    ],
    [
     "data/test/Dry Cherry/Dry Cherry_50.jpg",
-    2
+    3
    ],
    [
     "data/test/Dry Cherry/Dry Cherry_51.jpg",
-    2
+    3
    ],
    [
     "data/test/Dry Cherry/Dry Cherry_52.jpg",
-    2
+    3
    ],
    [
     "data/test/Dry Cherry/Dry Cherry_53.jpg",
-    2
+    3
    ],
    [
     "data/test/Dry Cherry/Dry Cherry_54.jpg",
-    2
+    3
    ],
    [
     "data/test/Fade/Fade_30.jpg",
-    3
+    4
    ],
    [
     "data/test/Fade/Fade_31.jpg",
-    3
+    4
    ],
    [
     "data/test/Fade/Fade_32.jpg",
-    3
+    4
    ],
    [
     "data/test/Fade/Fade_33.jpg",
-    3
+    4
    ],
    [
     "data/test/Fade/Fade_34.jpg",
-    3
+    4
    ],
    [
     "data/test/Fade/Fade_35.jpg",
-    3
+    4
    ],
    [
     "data/test/Floater/Floater_43.jpg",
-    4
+    5
    ],
    [
     "data/test/Floater/Floater_44.jpg",
-    4
+    5
    ],
    [
     "data/test/Floater/Floater_45.jpg",
-    4
+    5
    ],
    [
     "data/test/Floater/Floater_46.jpg",
-    4
+    5
    ],
    [
     "data/test/Floater/Floater_47.jpg",
-    4
+    5
    ],
    [
     "data/test/Floater/Floater_48.jpg",
-    4
+    5
    ],
    [
     "data/test/Full Black/Full Black_36.jpg",
-    5
+    0
    ],
    [
     "data/test/Full Black/Full Black_37.jpg",
-    5
+    0
    ],
    [
     "data/test/Full Black/Full Black_38.jpg",
-    5
+    0
    ],
    [
     "data/test/Full Black/Full Black_39.jpg",
-    5
+    0
    ],
    [
     "data/test/Full Black/Full Black_40.jpg",
-    5
+    0
    ],
    [
     "data/test/Full Black/Full Black_41.jpg",
-    5
+    0
    ],
    [
     "data/test/Full Sour/Full Sour_70.jpg",
-    6
+    13
    ],
    [
     "data/test/Full Sour/Full Sour_71.jpg",
-    6
+    13
    ],
    [
     "data/test/Full Sour/Full Sour_72.jpg",
-    6
+    13
    ],
    [
     "data/test/Full Sour/Full Sour_73.jpg",
-    6
+    13
    ],
    [
     "data/test/Full Sour/Full Sour_74.jpg",
-    6
+    13
    ],
    [
     "data/test/Full Sour/Full Sour_75.jpg",
-    6
+    13
    ],
    [
     "data/test/Fungus Damage/Fungus Damage_70.jpg",
-    7
+    6
    ],
    [
     "data/test/Fungus Damage/Fungus Damage_71.jpg",
-    7
+    6
    ],
    [
     "data/test/Fungus Damage/Fungus Damage_72.jpg",
-    7
+    6
    ],
    [
     "data/test/Fungus Damage/Fungus Damage_73.jpg",
-    7
+    6
    ],
    [
     "data/test/Fungus Damage/Fungus Damage_74.jpg",
-    7
+    6
    ],
    [
     "data/test/Fungus Damage/Fungus Damage_75.jpg",
-    7
+    6
    ],
    [
     "data/test/Husk/Husk_48.jpg",
-    8
+    7
    ],
    [
     "data/test/Husk/Husk_49.jpg",
-    8
+    7
    ],
    [
     "data/test/Husk/Husk_50.jpg",
-    8
+    7
    ],
    [
     "data/test/Husk/Husk_51.jpg",
-    8
+    7
    ],
    [
     "data/test/Husk/Husk_52.jpg",
-    8
+    7
    ],
    [
     "data/test/Husk/Husk_53.jpg",
-    8
+    7
    ],
    [
     "data/test/Immature/Immature_73.jpg",
-    9
+    8
    ],
    [
     "data/test/Immature/Immature_74.jpg",
-    9
+    8
    ],
    [
     "data/test/Immature/Immature_75.jpg",
-    9
+    8
    ],
    [
     "data/test/Immature/Immature_76.jpg",
-    9
+    8
    ],
    [
     "data/test/Immature/Immature_77.jpg",
-    9
+    8
    ],
    [
     "data/test/Immature/Immature_78.jpg",
-    9
+    8
    ],
    [
-    "data/test/Normal/Normal_46.jpg",
+    "data/resized/test/Normal/Normal_46.jpg",
     10
    ],
    [
-    "data/test/Normal/Normal_47.jpg",
+    "data/resized/test/Normal/Normal_47.jpg",
     10
    ],
    [
-    "data/test/Normal/Normal_48.jpg",
+    "data/resized/test/Normal/Normal_48.jpg",
     10
    ],
    [
-    "data/test/Normal/Normal_49.jpg",
+    "data/resized/test/Normal/Normal_49.jpg",
     10
    ],
    [
-    "data/test/Normal/Normal_50.jpg",
+    "data/resized/test/Normal/Normal_50.jpg",
     10
    ],
    [
-    "data/test/Normal/Normal_51.jpg",
+    "data/resized/test/Normal/Normal_51.jpg",
     10
    ],
    [
@@ -3945,27 +6850,27 @@
    ],
    [
     "data/test/Partial Black/Partial Black_60.jpg",
-    12
+    0
    ],
    [
     "data/test/Partial Black/Partial Black_61.jpg",
-    12
+    0
    ],
    [
     "data/test/Partial Black/Partial Black_62.jpg",
-    12
+    0
    ],
    [
     "data/test/Partial Black/Partial Black_63.jpg",
-    12
+    0
    ],
    [
     "data/test/Partial Black/Partial Black_64.jpg",
-    12
+    0
    ],
    [
     "data/test/Partial Black/Partial Black_65.jpg",
-    12
+    0
    ],
    [
     "data/test/Partial Sour/Partial Sour_45.jpg",
@@ -3993,100 +6898,105 @@
    ],
    [
     "data/test/Severe Insect Damage/Severe Insect Damage_52.jpg",
-    14
+    9
    ],
    [
     "data/test/Severe Insect Damage/Severe Insect Damage_53.jpg",
-    14
+    9
    ],
    [
     "data/test/Severe Insect Damage/Severe Insect Damage_54.jpg",
-    14
+    9
    ],
    [
     "data/test/Severe Insect Damage/Severe Insect Damage_55.jpg",
-    14
+    9
    ],
    [
     "data/test/Severe Insect Damage/Severe Insect Damage_56.jpg",
-    14
+    9
    ],
    [
     "data/test/Severe Insect Damage/Severe Insect Damage_57.jpg",
-    14
+    9
    ],
    [
     "data/test/Shell/Shell_52.jpg",
-    15
+    12
    ],
    [
     "data/test/Shell/Shell_53.jpg",
-    15
+    12
    ],
    [
     "data/test/Shell/Shell_54.jpg",
-    15
+    12
    ],
    [
     "data/test/Shell/Shell_55.jpg",
-    15
+    12
    ],
    [
     "data/test/Shell/Shell_56.jpg",
-    15
+    12
    ],
    [
     "data/test/Shell/Shell_57.jpg",
-    15
+    12
    ],
    [
     "data/test/Slight Insect Damage/Slight Insect Damage_50.jpg",
-    16
+    9
    ],
    [
     "data/test/Slight Insect Damage/Slight Insect Damage_51.jpg",
-    16
+    9
    ],
    [
     "data/test/Slight Insect Damage/Slight Insect Damage_52.jpg",
-    16
+    9
    ],
    [
     "data/test/Slight Insect Damage/Slight Insect Damage_53.jpg",
-    16
+    9
    ],
    [
     "data/test/Slight Insect Damage/Slight Insect Damage_54.jpg",
-    16
+    9
    ],
    [
     "data/test/Slight Insect Damage/Slight Insect Damage_55.jpg",
-    16
+    9
    ],
    [
     "data/test/Withered/Withered_49.jpg",
-    17
+    14
    ],
    [
     "data/test/Withered/Withered_50.jpg",
-    17
+    14
    ],
    [
     "data/test/Withered/Withered_51.jpg",
-    17
+    14
    ],
    [
     "data/test/Withered/Withered_52.jpg",
-    17
+    14
    ],
    [
     "data/test/Withered/Withered_53.jpg",
-    17
+    14
    ],
    [
     "data/test/Withered/Withered_54.jpg",
-    17
+    14
    ]
   ]
+ },
+ "augmented": {
+  "target": 100,
+  "seed": 42,
+  "added": 727
  }
 }
