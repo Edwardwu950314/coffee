@@ -1,436 +1,149 @@
-# 咖啡豆瑕疵偵測系統 (YOLOv8-OBB)
+# Coffee Bean Defect Classification Project
 
-一個基於 YOLOv8-OBB（旋轉框目標檢測）的自動化咖啡豆瑕疵檢測系統。採用深度學習技術，能夠快速、準確地識別咖啡豆上的瑕疵，適用於咖啡豆品質控制和分選流程。
+這是一個針對咖啡豆缺陷類別辨識的影像分類專案。專案使用預訓練的 ResNet18 作為主幹網路，並透過遷移學習方式對 18 種咖啡豆狀態進行分類。
 
----
-
-## 📋 目錄
-
-- [專案概述](#專案概述)
-- [資料集信息](#資料集信息)
-- [目錄結構](#目錄結構)
-- [快速開始](#快速開始)
-- [詳細說明](#詳細說明)
-- [進階配置](#進階配置)
-- [常見問題](#常見問題)
+本專案的資料集不是 YOLO 目標偵測格式，而是「每個類別一個資料夾」的分類資料集，因此訓練與推論均採用影像分類流程。
 
 ---
 
-## 專案概述
+## 專案目標
 
-### 核心特性
+判斷咖啡豆屬於哪一種缺陷類別或正常狀態：
 
-- **YOLOv8-OBB 模型**：使用旋轉框格式，能精確偵測各種角度的瑕疵
-- **小型資料集優化**：使用 1,835 張訓練圖像，訓練高效快速
-- **批量處理能力**：支援單張圖片或整個資料夾的批量推理
-- **詳細報告輸出**：自動生成 CSV 統計表和可視化檢測結果
-- **靈活調整**：支援信心閾值調整，適應不同品質標準
-
-### 應用場景
-
-- ✅ 咖啡豆分選線的自動檢測
-- ✅ 品質控制和品質保證
-- ✅ 瑕疵統計和趨勢分析
-- ✅ 傳送帶異物檢測
+Broken、Cut、Dry Cherry、Fade、Floater、Full Black、Full Sour、Fungus Damage、Husk、Immature、Normal、Parchment、Partial Black、Partial Sour、Severe Insect Damage、Shell、Slight Insect Damage、Withered
 
 ---
 
-## 資料集信息
+## 模型架構
 
-### 資料集概況
+- Backbone: ResNet18（ImageNet 預訓練權重）
+- 分類頭: `Linear(512, num_classes)`
+- Loss: 依類別數量加權的 Cross Entropy Loss（處理類別不平衡）
+- Optimizer: AdamW + ReduceLROnPlateau
+- 選模指標: 驗證集 macro-F1，並有 early stopping
+- GPU 上自動啟用混合精度 (AMP)
 
-| 指標 | 值 |
-|------|-----|
-| **總圖像數** | 1,835 張 |
-| **訓練集** | 1,285 張 |
-| **驗證集** | 367 張 |
-| **測試集** | 183 張 |
-| **圖像分辨率** | 224 × 224 px |
-| **類別數** | 1 |
-| **類別名稱** | `NG`（瑕疵/不合格） |
-| **預處理** | 自動方向調整、拉伸至 224×224 |
+---
 
-### 標籤格式
+## 資料集結構與切分
 
-採用 **YOLOv8-OBB（旋轉框）格式**，每行一個檢測框：
-
-```
-<class> <x1> <y1> <x2> <y2> <x3> <y3> <x4> <y4>
+```text
+data/
+├── train/<類別>/*.jpg     # 原始訓練資料
+├── test/<類別>/*.jpg      # 原始測試資料
+└── splits.json            # make_split.py 產生的切分檔
 ```
 
-- `<class>`：類別索引（0 = NG）
-- `<x1~y4>`：四邊形四個頂點的正規化座標（0~1）
+`make_split.py` 會產生 `data/splits.json`（**不會移動或刪除任何圖片**）：
 
-**重要**：這與標準 YOLO 格式不同（標準格式為 `class x_center y_center w h`）。因此必須使用 **OBB 專用模型**（如 `yolov8n-obb.pt`），而不是通用的 YOLO 模型。
+- 用 MD5 找出內容完全相同的圖片：
+  - 出現在不同類別的同一張圖 → 標籤矛盾，全部排除
+  - 同時出現在 train 與 test → 只保留 test 那份，避免資料洩漏
+  - 同類別內重複 → 只保留一張
+- 從 train 依類別比例切出 **val**（預設 15%），用於挑選最佳權重與調整學習率
+- **test 只在訓練結束後評估一次**，不參與任何模型選擇，分數才客觀
 
-### 資料來源
-
-資料集來自 Roboflow 平台：
-- **匯出時間**：2024 年 1 月 25 日
-- **資料集名稱**：Coffee Bean Defect - v1
-- **標註工具**：Roboflow Annotation
+目前切分結果：train 773 / val 134 / test 108 張。
 
 ---
 
-## 目錄結構
+## 專案檔案說明
 
-```
-coffee_bean_defect/
-├── README.md                           # 本文件
-├── data.yaml                           # 資料集配置文件
-├── train.py                            # 訓練腳本
-├── predict.py                          # 推理/預測腳本
-├── test_cuda.py                        # CUDA 環境檢測工具
-├── requirements.txt                    # 依賴包列表
-├── yolov8n-obb.pt                      # 預訓練模型（nano 版本）
-│
-├── train/                              # 訓練集
-│   ├── images/                         # 訓練圖片 (1285 張)
-│   └── labels/                         # 訓練標籤 (OBB 格式)
-│
-├── valid/                              # 驗證集
-│   ├── images/                         # 驗證圖片 (367 張)
-│   └── labels/                         # 驗證標籤
-│
-├── test/                               # 測試集
-│   ├── images/                         # 測試圖片 (183 張)
-│   └── labels/                         # 測試標籤
-│
-├── weights/                            # 存放訓練好的模型
-│   └── yolo26n.pt
-│
-└── runs/                               # 訓練和推理輸出
-    └── obb/
-        ├── coffee_bean_defect/         # 訓練結果（權重、圖表等）
-        │   └── weights/
-        │       ├── best.pt             # 最佳模型
-        │       └── last.pt
-        └── predict/                    # 推理結果
-            ├── images/                 # 標註後的圖片
-            └── summary.csv             # 統計報告
+```text
+.
+├── dataset.py         # 資料集、前處理（訓練與推論共用）
+├── make_split.py      # 產生去重後的 train/val/test 切分檔
+├── model.py           # 模型定義、checkpoint 存取
+├── train.py           # 訓練主程式
+├── predict.py         # 單張圖片推論
+├── batch_predict.py   # 批次推論與抽查
+├── requirements.txt
+└── runs/<時間戳>/      # 每次訓練的輸出（不進版本控制）
 ```
 
 ---
 
-## 快速開始
+## 安裝環境
 
-### 1️⃣ 環境設置
-
-#### 前置需求
-- Python 3.8+
-- pip（Python 包管理工具）
-- (可選) NVIDIA GPU 與 CUDA 工具包（加速訓練）
-
-#### 安裝依賴
+Python 3.10+：
 
 ```bash
-# 基礎安裝
 pip install -r requirements.txt
-
-# 如果有 NVIDIA GPU，建議先安裝 GPU 支援版本的 PyTorch
-# 根據你的 CUDA 版本選擇相應的命令
-# 例如 CUDA 12.1：
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 ```
 
-#### 驗證 CUDA 環境（可選）
+GPU 版 PyTorch 請依 CUDA 版本安裝，參考 `requirements.txt` 開頭的說明。
+
+---
+
+## 使用方式
+
+所有預設路徑都以專案根目錄為基準，從任何目錄執行都可以。
+
+### 1. 產生資料切分（資料有變動時重新執行）
 
 ```bash
-python test_cuda.py
+python make_split.py
 ```
 
-### 2️⃣ 訓練模型
-
-#### 基礎訓練
-
-使用預設參數啟動訓練：
+### 2. 訓練
 
 ```bash
 python train.py
+python train.py --epochs 50 --lr 5e-5 --batch-size 32
 ```
 
-#### 自訂訓練參數
+常用參數：`--patience`（early stopping）、`--seed`、`--img-size`、`--no-class-weights`、`--no-amp`。
+
+每次訓練輸出到獨立的 `runs/<時間戳>/`，不會覆蓋之前的結果：
+
+| 檔案 | 內容 |
+|---|---|
+| `best.pth` / `last.pth` | 權重檔（內含類別名稱與圖片大小，推論只需這一個檔案） |
+| `config.json` | 本次訓練參數 |
+| `history.csv` | 每個 epoch 的 loss、accuracy、macro-F1、learning rate |
+| `training_curves.png` | loss 與驗證指標曲線 |
+| `confusion_matrix_val.png` / `confusion_matrix_test.png` | 混淆矩陣（含數字） |
+| `report.txt` | val / test 的每類 precision、recall、F1 |
+
+### 3. 推論
 
 ```bash
-python train.py \
-  --model yolov8s-obb.pt \
-  --epochs 150 \
-  --imgsz 224 \
-  --batch 32 \
-  --device 0
+python predict.py --image "path/to/image.jpg"
+python predict.py --image img.jpg --model runs/20260923-120000/best.pth
 ```
 
-#### 常用訓練參數
+未指定 `--model` 時自動使用最新的 `runs/*/best.pth`；未指定 `--image` 時使用 `data/test` 中的第一張圖。舊版 `weights/best.pth`（只存參數）仍可載入，類別名稱會從 `--class-dir`（預設 `data/train`）讀取。
 
-| 參數 | 預設值 | 說明 |
-|------|--------|------|
-| `--model` | `yolov8s-obb.pt` | 模型大小（nano/small/medium/large/xlarge） |
-| `--epochs` | 200 | 訓練回合數 |
-| `--imgsz` | 640 | 輸入圖像大小 |
-| `--batch` | 16 | 批量大小 |
-| `--device` | 自動 | GPU ID（0, 1, ...）或 `cpu` |
-| `--lr0` | 0.01 | 初始學習率 |
-| `--patience` | 50 | 早停耐心值 |
-| `--optimizer` | auto | 優化器（auto/SGD/Adam/AdamW） |
-| `--cache` | ram | 緩存方式（ram/disk/False） |
-| `--plots` | True | 是否生成訓練圖表 |
-
-#### 模型尺寸對比
-
-| 模型 | 速度 | 精度 | VRAM | 適用場景 |
-|------|------|------|------|---------|
-| `yolov8n-obb` | ⚡⚡⚡ 最快 | ★★☆ | 低 | 實時應用、邊緣設備 |
-| `yolov8s-obb` | ⚡⚡ | ★★★ | 中 | **推薦** |
-| `yolov8m-obb` | ⚡ | ★★★★ | 中高 | 高精度要求 |
-| `yolov8l-obb` | 中等 | ★★★★★ | 高 | 優先精度 |
-| `yolov8x-obb` | 最慢 | ★★★★★ | 非常高 | 最高精度要求 |
-
-#### 訓練完成後
-
-訓練完成時，最佳權重和其他輸出存放在：
-
-```
-runs/obb/coffee_bean_defect/
-├── weights/
-│   ├── best.pt          # ⭐ 最佳模型（驗證集上表現最好）
-│   └── last.pt          # 最後一個 epoch 的模型
-├── results.csv          # 每個 epoch 的訓練指標
-├── confusion_matrix.png # 混淆矩陣
-├── results.png          # 訓練曲線（loss、精度等）
-└── ...
-```
-
-### 3️⃣ 模型推理/預測
-
-#### 推理單張圖片
+### 4. 批次抽查
 
 ```bash
-python predict.py \
-  --weights runs/obb/coffee_bean_defect/weights/best.pt \
-  --source test/images/-003_png.rf.xxxx.jpg
+python batch_predict.py                  # 隨機抽 5 張
+python batch_predict.py --num-images 20 --seed 0
+python batch_predict.py --all
 ```
 
-#### 推理整個資料夾
-
-```bash
-python predict.py \
-  --weights runs/obb/coffee_bean_defect/weights/best.pt \
-  --source test/images
-```
-
-#### 推理結果
-
-推理完成後，輸出位置：`runs/obb/predict/`
-
-輸出內容包括：
-1. **標註圖片**：在 `images/` 資料夾，每張圖片都繪製了偵測框
-2. **終端輸出**：每張圖片的瑕疵數量、信心分數、判定結果（OK/NG）
-3. **統計報告**：`summary.csv` 檔案，包含所有圖片的彙總統計
-
-#### 調整信心閾值
-
-如果需要調整檢測的靈敏度：
-
-```bash
-# 嚴格模式：降低誤判率（漏判率可能上升）
-python predict.py \
-  --weights best.pt \
-  --source test/images \
-  --conf 0.4
-
-# 寬鬆模式：降低漏判率（誤判率可能上升）
-python predict.py \
-  --weights best.pt \
-  --source test/images \
-  --conf 0.15
-```
-
-#### 推理參數說明
-
-| 參數 | 預設 | 說明 |
-|------|------|------|
-| `--weights` | 必須 | 模型權重路徑 |
-| `--source` | 必須 | 圖片/資料夾路徑 |
-| `--imgsz` | 224 | 推理時的輸入圖像大小 |
-| `--conf` | 0.25 | 信心閾值（0~1），越高越嚴格 |
-| `--device` | 自動 | 設備（0 = GPU0，cpu = CPU） |
-| `--project` | runs/obb | 輸出上層資料夾 |
-| `--name` | predict | 輸出資料夾名稱 |
-| `--csv` | 預設 | 自訂 CSV 輸出路徑 |
+結果圖存到 `data/test_results/`，並顯示正確答案與抽樣準確率。
 
 ---
 
-## 詳細說明
+## 已知資料問題
 
-### 訓練流程詳解
-
-1. **資料載入**：根據 `data.yaml` 配置載入訓練、驗證、測試集
-2. **模型初始化**：載入指定的預訓練 YOLOv8-OBB 模型
-3. **訓練迴圈**：
-   - 每個 epoch 使用訓練集進行前向和反向傳播
-   - 計算 loss（分類 loss + 迴歸 loss + objectness loss）
-   - 每個 epoch 後在驗證集上評估性能
-4. **模型選擇**：根據驗證集性能選擇最佳模型保存為 `best.pt`
-5. **早停機制**：如果驗證集性能連續 50 個 epoch 不改善，自動停止訓練
-
-### OBB 標籤格式解說
-
-YOLOv8-OBB 標籤使用四個頂點座標表示旋轉框：
-
-```
-# 例子：
-0 0.5 0.5 0.6 0.4 0.7 0.6 0.6 0.7
-├─ 類別   0（NG）
-├─ 點 1（x1, y1）：0.5, 0.5
-├─ 點 2（x2, y2）：0.6, 0.4
-├─ 點 3（x3, y3）：0.7, 0.6
-└─ 點 4（x4, y4）：0.6, 0.7
-```
-
-所有座標都被正規化至 [0, 1] 範圍，與影像大小無關。
-
-### CSV 報告格式
-
-推理完成後生成的 `summary.csv` 包含以下列：
-
-| 欄位 | 說明 |
-|------|------|
-| `image` | 圖片名稱 |
-| `num_defects` | 偵測到的瑕疵數量 |
-| `mean_confidence` | 所有檢測的平均信心分數 |
-| `result` | 判定結果（OK = 無瑕疵，NG = 有瑕疵） |
+- **Normal 類別的圖片是 200×200，其他類別都是 500×500**。模型可能學到「解析度/模糊程度 = Normal」這種捷徑，而不是豆子本身的特徵。建議補拍同規格的 Normal 圖片，或檢查混淆矩陣中 Normal 的表現是否異常地好。
+- `Fade_08.jpg` 與 `Partial Sour_06.jpg` 是同一張圖，標籤矛盾，已在切分時排除，建議人工確認正確類別。
+- test 集每類只有 6 張，單類準確率波動大（錯 1 張 ≈ 17%），解讀時需注意。
 
 ---
 
-## 進階配置
+## 下一步建議
 
-### 資料增強設定
-
-在 `train.py` 中可調整資料增強參數：
-
-```python
-# 旋轉角度（度數）
-parser.add_argument("--degrees", type=float, default=180.0)
-
-# 上下翻轉概率
-parser.add_argument("--flipud", type=float, default=0.5)
-
-# 左右翻轉概率
-parser.add_argument("--fliplr", type=float, default=0.5)
-
-# 縮放比例
-parser.add_argument("--scale", type=float, default=0.5)
-
-# 平移幅度
-parser.add_argument("--translate", type=float, default=0.1)
-
-# 色調飽和度亮度調整
-parser.add_argument("--hsv_h", type=float, default=0.015)  # 色調
-parser.add_argument("--hsv_s", type=float, default=0.7)    # 飽和度
-parser.add_argument("--hsv_v", type=float, default=0.4)    # 亮度
-
-# Mosaic 和 Mixup
-parser.add_argument("--mosaic", type=float, default=1.0)
-parser.add_argument("--mixup", type=float, default=0.1)
-```
-
-### 恢復訓練
-
-如果訓練被中斷，可以恢復上次的訓練進度：
-
-```bash
-python train.py --resume
-```
-
-此命令會自動載入最後保存的模型和訓練狀態。
-
-### 多卡 GPU 訓練
-
-```bash
-# 使用 GPU 0
-python train.py --device 0
-
-# 使用 GPU 0 和 1（分佈式訓練）
-python train.py --device 0,1
-```
-
-### 優化器選擇
-
-```bash
-# 自動選擇（推薦）
-python train.py --optimizer auto
-
-# 使用 SGD
-python train.py --optimizer SGD --lr0 0.01
-
-# 使用 Adam
-python train.py --optimizer Adam --lr0 0.001
-
-# 使用 AdamW
-python train.py --optimizer AdamW --lr0 0.001
-```
+- 擴充資料量，特別是 test 集與 Normal 類別
+- 嘗試 ResNet50 / EfficientNet / ConvNeXt 等 backbone
+- 用 k-fold cross-validation 取得更穩定的評估
 
 ---
 
-## 常見問題
+## 下週目標
 
-### Q1: 訓練速度太慢
-
-**A:** 如果沒有 GPU，訓練會非常慢。解決方案：
-- 檢查是否正確安裝 GPU 版本的 PyTorch 和 CUDA
-- 執行 `python test_cuda.py` 驗證 GPU 可用性
-- 使用更小的模型（如 `yolov8n-obb.pt`）
-- 減少 epoch 數量進行測試
-
-### Q2: 顯示記憶體不足 (OOM) 錯誤
-
-**A:** 減少批量大小或使用更小的模型：
-
-```bash
-python train.py --model yolov8n-obb.pt --batch 8
-```
-
-### Q3: 推理結果中所有圖片都被判定為 NG
-
-**A:** 可能是信心閾值設定過低。嘗試增加閾值：
-
-```bash
-python predict.py --weights best.pt --source test/images --conf 0.5
-```
-
-### Q4: 模型訓練不收斂（loss 沒有下降）
-
-**A:** 可能的原因和解決方案：
-- 學習率過高：`python train.py --lr0 0.001`
-- 數據標籤有問題：檢查標籤文件格式
-- 模型不適合資料：嘗試更大的模型
-- 資料量不足：考慮加入資料增強或收集更多資料
-
-### Q5: 如何在自訂 GPU 上進行推理
-
-**A:** 指定 device 參數：
-
-```bash
-# 使用 GPU 0
-python predict.py --weights best.pt --source test/images --device 0
-
-# 使用 CPU
-python predict.py --weights best.pt --source test/images --device cpu
-```
-
-### Q6: 能否修改類別名稱或新增類別
-
-**A:** 當前項目只有 1 個類別（NG），如需修改需要：
-1. 重新標註數據集（修改 `labels/*.txt` 檔案）
-2. 更新 `data.yaml` 中的 `nc` 和 `names`
-3. 重新訓練模型
-
----
-
-## 許可證和引用
-
-此項目基於以下技術：
-
-- **YOLOv8**: [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)
-- **資料集**: Roboflow 平台提供的咖啡豆數據集
-
+- [ ] **補拍自己的豆子**：好豆與壞豆都要，目前自拍好豆只剩 35 張（測試集僅 6 張），無法可靠評估實際表現。拍完後裁成單顆、統一 500×500，依同樣標準標好壞，併入 `data/merged/`。
+- [ ] **統一好壞標準**：「偏黃算不算壞」還沒決定（影響 USK 裡約 60 張壞豆漏抓）；「銀皮斑塊算壞豆」目前只套用在自拍資料，USK 的好豆尚未依此複查。
+- [ ] **用新資料重訓並評估**：以 ResNet50 重訓（目前測試 accuracy 94.7%、macro-F1 0.936，`runs/merged_resnet50_v2/`），分開看自拍與 USK 的好豆／壞豆表現。
