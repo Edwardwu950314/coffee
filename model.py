@@ -8,7 +8,7 @@ class CoffeeBeanClassifier(nn.Module):
     影像分類模型：輸入一張咖啡豆照片，輸出它屬於各個缺陷類別的分數。
     """
 
-    def __init__(self, num_classes=18, pretrained=True, arch="resnet18", dropout=0.0):
+    def __init__(self, num_classes=18, pretrained=True, arch="resnet50", dropout=0.0):
         super().__init__()
         self.arch = arch
 
@@ -29,8 +29,8 @@ class CoffeeBeanClassifier(nn.Module):
             feat_dim = net.fc.in_features
 
         # 2. 分類頭 (classifier head)：負責「猜是哪一類」
-        #    backbone 輸出的是 512 個數字（圖片的特徵摘要），
-        #    這裡用一個全新的線性層，把 512 個數字轉成 num_classes 個分數。
+        #    backbone 輸出的是 feat_dim 個數字（圖片的特徵摘要；ResNet18 為 512、ResNet50 為 2048、EfficientNet-B0 為 1280），
+        #    這裡用一個全新的線性層，把 feat_dim 個數字轉成 num_classes 個分數。
         #    這一層是模型裡「唯一需要從頭學」的部分，因為 ImageNet 沒教過咖啡豆缺陷長怎樣。
         #    前面加 Dropout：訓練時隨機丟掉一部分特徵，防止模型太依賴少數特徵而 overfitting。
         #    Dropout 沒有參數，所以不影響權重檔的相容性；推論（eval）時自動關閉。
@@ -41,11 +41,11 @@ class CoffeeBeanClassifier(nn.Module):
         # x 的形狀是 (批次大小, 3, 圖片高, 圖片寬)，3 代表 RGB 三個顏色通道
 
         features = self.backbone(x)
-        # backbone 輸出形狀是 (批次大小, 512, 1, 1)，
-        # 也就是每張圖被壓縮成 512 個數字，但外面還包著多餘的維度
+        # backbone 輸出形狀是 (批次大小, feat_dim, 1, 1)（ResNet18 的 feat_dim 為 512），
+        # 也就是每張圖被壓縮成 feat_dim 個數字，但外面還包著多餘的維度
 
         features = torch.flatten(features, 1)
-        # 把 (批次大小, 512, 1, 1) 攤平成 (批次大小, 512)，
+        # 把 (批次大小, feat_dim, 1, 1) 攤平成 (批次大小, feat_dim)，
         # 這樣才能丟進下面的線性層做矩陣運算
 
         return self.classifier(self.dropout(features))
@@ -63,6 +63,7 @@ def save_checkpoint(path, model, class_names, image_size, **extra):
         "arch": getattr(model, "arch", "resnet18"),
         "class_names": list(class_names),
         "image_size": image_size,
+        "dropout": model.dropout.p,  # 推論用不到，但之後從 checkpoint 接續訓練時可以還原
         **extra,
     }, path)
 
@@ -78,13 +79,14 @@ def load_checkpoint(path, device, class_names=None, image_size=224):
         state_dict = ckpt["model_state"]
         class_names = ckpt["class_names"]
         image_size = ckpt.get("image_size", image_size)
+        arch = ckpt.get("arch", "resnet18")
     else:
         state_dict = ckpt
+        arch = "resnet18"  # 舊版權重檔沒存 arch，當時只有 ResNet18
         if not class_names:
             raise ValueError(f"{path} is a legacy checkpoint without class names; please pass --class-dir.")
 
-    model = CoffeeBeanClassifier(num_classes=len(class_names), pretrained=False,
-                                 arch=ckpt.get("arch", "resnet18") if "model_state" in ckpt else "resnet18")
+    model = CoffeeBeanClassifier(num_classes=len(class_names), pretrained=False, arch=arch)
     model.load_state_dict(state_dict)  # 把訓練好的權重灌進模型架構裡
     model.to(device).eval()  # 推論模式
     return model, class_names, image_size

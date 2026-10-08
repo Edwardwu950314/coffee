@@ -4,10 +4,13 @@ __pycache__/
 .venv/
 
 # 資料與訓練產出（體積大，不進版本控制）
-data/*
-!data/splits.json
+coffee/
+cache/
+predict_results/
 runs/
+models/
 weights/
+*.log
 *.pt
 *.pth
 result_output.jpg

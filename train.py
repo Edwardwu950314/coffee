@@ -3,6 +3,7 @@ import csv
 import json
 import os
 import random
+import shutil
 from datetime import datetime
 from pathlib import Path
 
@@ -102,7 +103,8 @@ def run_epoch(model, loader, criterion, device, num_classes, optimizer=None, sca
 
 def plot_confusion_matrix(cm, class_names, save_path, title):
     """把混淆矩陣畫成熱力圖存檔，顏色越深代表數量越多，格子裡標上實際數字。"""
-    fig, ax = plt.subplots(figsize=(11, 10))
+    size = max(4, 0.6 * len(class_names))
+    fig, ax = plt.subplots(figsize=(size + 2, size + 1))
     im = ax.imshow(cm, cmap="Blues")
     ax.set_xticks(range(len(class_names)))
     ax.set_yticks(range(len(class_names)))
@@ -161,16 +163,18 @@ def main():
     # 用命令列參數讓使用者可以不改程式碼就調整訓練設定，例如：
     # python train.py --epochs 30 --lr 5e-5
     parser = argparse.ArgumentParser(description="Train a coffee bean defect classifier.")
-    parser.add_argument("--split", type=Path, default=PROJECT_ROOT / "data" / "splits.json",
-                        help="Split file created by make_split.py")
+    parser.add_argument("--method", type=str, default="water",
+                        help="Processing method to train (water / sun / honey)")
+    parser.add_argument("--split", type=Path, default=None,
+                        help="Split file created by prepare_dataset.py (default: splits/<method>.json)")
     parser.add_argument("--out-dir", type=Path, default=None,
-                        help="Output folder (default: data/train_results/<timestamp>)")
+                        help="Output folder (default: runs/<method>/<timestamp>)")
     parser.add_argument("--epochs", type=int, default=30)       # 整份訓練資料最多重複看幾遍
     parser.add_argument("--patience", type=int, default=8)      # 驗證分數連續幾個 epoch 沒進步就提早停止
     parser.add_argument("--batch-size", type=int, default=16)   # 一次丟幾張圖片進模型
     parser.add_argument("--lr", type=float, default=1e-4)       # learning rate：每次調整參數的步伐大小
     parser.add_argument("--img-size", type=int, default=224)    # 圖片統一縮放成幾 x 幾
-    parser.add_argument("--arch", type=str, default="resnet50",
+    parser.add_argument("--arch", type=str, default="resnet18",
                         choices=["resnet18", "resnet50", "efficientnet_b0"])  # backbone 架構
     parser.add_argument("--dropout", type=float, default=0.5)          # 分類頭前的 Dropout 比例
     parser.add_argument("--weight-decay", type=float, default=0.05)    # 參數懲罰強度，越大越抑制 overfitting
@@ -190,18 +194,19 @@ def main():
     else:
         device = torch.device(args.device)
 
+    args.split = args.split or PROJECT_ROOT / "splits" / f"{args.method}.json"
     if not args.split.exists():
-        raise FileNotFoundError(f"{args.split} not found. Run `python make_split.py` first.")
+        raise FileNotFoundError(f"{args.split} not found. Run `python prepare_dataset.py --method {args.method}` first.")
     class_names, splits = load_split(args.split)
     num_classes = len(class_names)
 
     # 每次訓練都存到獨立的資料夾，不會覆蓋上一次的結果，方便比較不同實驗
-    out_dir = args.out_dir or PROJECT_ROOT / "data" / "train_results" / datetime.now().strftime("%Y%m%d-%H%M%S")
+    out_dir = args.out_dir or PROJECT_ROOT / "runs" / args.method / datetime.now().strftime("%Y%m%d-%H%M%S")
     out_dir.mkdir(parents=True, exist_ok=True)
     with open(out_dir / "config.json", "w", encoding="utf-8") as f:
         json.dump({k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()}, f, indent=2)
 
-    print(f"Training on {num_classes} classes using {device}")
+    print(f"Training [{args.method}] on {num_classes} classes {class_names} using {device}")
     print(f"train={len(splits['train'])}  val={len(splits['val'])}  test={len(splits['test'])}")
     print(f"Outputs: {out_dir}")
 
@@ -311,7 +316,12 @@ def main():
     test_m = metrics_from_cm(results["test"][1])
     print(f"\nBest epoch: {best_epoch}  (val macro-F1={best_f1:.4f})")
     print(f"Test accuracy={test_m['accuracy']:.4f}  macro-F1={test_m['macro_f1']:.4f}")
+    # 把這次的最佳權重放到固定位置，predict.py / 之後的 App 用 --method 切換時就是讀這裡
+    final_path = PROJECT_ROOT / "models" / args.method / "best.pth"
+    final_path.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(out_dir / "best.pth", final_path)
     print(f"Saved weights: {out_dir / 'best.pth'}, {out_dir / 'last.pth'}")
+    print(f"Deployed model: {final_path}")
     print(f"Saved report:  {report_path}")
 
 
