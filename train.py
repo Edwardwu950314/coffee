@@ -159,6 +159,56 @@ def write_report(path, class_names, results):
             f.write("\n")
 
 
+@torch.no_grad()
+def predict_probs(model, dataset, device, batch_size):
+    """對整個資料集逐張預測，回傳 shape=(張數, 類別數) 的機率（softmax 後），順序與 dataset.samples 相同。"""
+    model.eval()
+    loader = DataLoader(dataset, batch_size=batch_size, shuffle=False)
+    probs = [torch.softmax(model(images.to(device)), dim=1).cpu() for images, _ in loader]
+    return torch.cat(probs).numpy()
+
+
+def analyze_errors(out_dir, split, samples, probs, class_names):
+    """
+    逐張記錄預測結果，並挑出所有判錯的照片：
+    - 漏抓（missed）：真的是壞豆，卻被判成好豆 —— 最危險，壞豆混進成品
+    - 誤判（false alarm）：真的是好豆，卻被判成壞豆
+    p_bad = 模型認為這顆是壞豆的信心度（0~1）。漏抓的照片 p_bad 越低代表模型越「理直氣壯地錯」。
+    輸出：predictions_<split>.csv（每張的 p_bad）、errors_<split>.txt（錯誤清單）、
+    errors/<split>/{missed,false_alarm}/（把錯的照片複製過去，檔名前面加上 p_bad 方便排序）。
+    回傳 (漏抓清單, 誤判清單)，每筆為 (路徑, p_bad)。
+    """
+    bad_idx = class_names.index("bad")
+    missed, false_alarm = [], []
+    with open(out_dir / f"predictions_{split}.csv", "w", newline="", encoding="utf-8-sig") as f:
+        writer = csv.writer(f)
+        writer.writerow(["image", "actual", "predicted", "p_bad", "correct"])
+        for (path, label), p in zip(samples, probs):
+            pred = int(p.argmax())
+            p_bad = float(p[bad_idx])
+            writer.writerow([Path(path).name, class_names[label], class_names[pred], f"{p_bad:.4f}", int(pred == label)])
+            if pred != label:
+                (missed if label == bad_idx else false_alarm).append((path, p_bad))
+    # 漏抓：p_bad 越低越離譜；誤判：p_bad 越高越離譜
+    missed.sort(key=lambda r: r[1])
+    false_alarm.sort(key=lambda r: -r[1])
+
+    lines = [f"[{split}] 共 {len(samples)} 張，判錯 {len(missed) + len(false_alarm)} 張",
+             f"\n漏抓壞豆（實際 bad → 判成 good）{len(missed)} 張："]
+    lines += [f"  p_bad={p:.3f}  {Path(path).name}" for path, p in missed]
+    lines.append(f"\n誤判好豆（實際 good → 判成 bad）{len(false_alarm)} 張：")
+    lines += [f"  p_bad={p:.3f}  {Path(path).name}" for path, p in false_alarm]
+    text = "\n".join(lines)
+    (out_dir / f"errors_{split}.txt").write_text(text + "\n", encoding="utf-8")
+
+    for kind, rows in (("missed", missed), ("false_alarm", false_alarm)):
+        folder = out_dir / "errors" / split / kind
+        for path, p in rows:
+            folder.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(path, folder / f"{p:.3f}_{Path(path).name}")
+    return text
+
+
 def main():
     # 用命令列參數讓使用者可以不改程式碼就調整訓練設定，例如：
     # python train.py --epochs 30 --lr 5e-5
@@ -313,9 +363,17 @@ def main():
     report_path = out_dir / "report.txt"
     write_report(report_path, class_names, results)
 
+    # 列出 val / test 所有判錯的照片（含每張的壞豆信心度）
+    error_texts = {}
+    for split, dataset in (("val", val_dataset), ("test", test_dataset)):
+        probs = predict_probs(model, dataset, device, args.batch_size)
+        error_texts[split] = analyze_errors(out_dir, split, dataset.samples, probs, class_names)
+
     test_m = metrics_from_cm(results["test"][1])
     print(f"\nBest epoch: {best_epoch}  (val macro-F1={best_f1:.4f})")
     print(f"Test accuracy={test_m['accuracy']:.4f}  macro-F1={test_m['macro_f1']:.4f}")
+    print("\n" + error_texts["test"])
+    print(f"(val 的錯誤清單見 {out_dir / 'errors_val.txt'}；錯誤照片已複製到 {out_dir / 'errors'})")
     # 把這次的最佳權重放到固定位置，predict.py / 之後的 App 用 --method 切換時就是讀這裡
     final_path = PROJECT_ROOT / "models" / args.method / "best.pth"
     final_path.parent.mkdir(parents=True, exist_ok=True)

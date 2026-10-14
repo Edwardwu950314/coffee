@@ -37,22 +37,28 @@ class Predictor:
 
     @torch.no_grad()
     def predict(self, images, crop=True, batch_size=32):
-        """輸入 PIL 圖片列表，回傳 [(good/bad, 機率), ...]。crop=True 代表輸入是整張原照片，會先裁出豆子。"""
+        """
+        輸入 PIL 圖片列表，回傳 [(good/bad, 該判定的機率, 壞豆信心度 p_bad), ...]。
+        p_bad = 模型認為這顆是壞豆的機率（0~1），不論最後判成哪一類都會給，可自行設門檻（例如 >0.3 就當壞豆以減少漏抓）。
+        crop=True 代表輸入是整張原照片，會先裁出豆子。
+        """
         if crop:
             images = [crop_bean(img.convert("RGB"), CROP_SIZE) for img in images]
+        bad_idx = self.class_names.index("bad")
         results = []
         for start in range(0, len(images), batch_size):
             x = torch.stack([self.transform(img.convert("RGB")) for img in images[start:start + batch_size]]).to(self.device)
-            scores, indices = torch.softmax(self.model(x), dim=1).max(dim=1)
-            results += [(self.class_names[i], s) for i, s in zip(indices.tolist(), scores.tolist())]
+            probs = torch.softmax(self.model(x), dim=1)
+            scores, indices = probs.max(dim=1)
+            results += [(self.class_names[i], s, b) for i, s, b in zip(indices.tolist(), scores.tolist(), probs[:, bad_idx].tolist())]
         return results
 
 
-def save_result(image, label, score, save_path):
-    """把裁出的豆子連同預測結果畫成圖存檔：好豆綠字、壞豆紅字。"""
+def save_result(image, label, score, p_bad, save_path):
+    """把裁出的豆子連同預測結果畫成圖存檔：好豆綠字、壞豆紅字，標題下方註明壞豆信心度。"""
     fig, ax = plt.subplots(figsize=(4, 4.4))
     ax.imshow(image)
-    ax.set_title(f"{label} ({score:.1%})", color="green" if label == "good" else "red", fontsize=16)
+    ax.set_title(f"{label} ({score:.1%})\nbad confidence: {p_bad:.1%}", color="green" if label == "good" else "red", fontsize=14)
     ax.axis("off")
     fig.savefig(save_path, bbox_inches="tight")
     plt.close(fig)
@@ -89,10 +95,10 @@ def main():
         images = [crop_bean(img, CROP_SIZE) for img in images]
     if args.save_dir:
         args.save_dir.mkdir(parents=True, exist_ok=True)
-    for path, image, (label, score) in zip(paths, images, predictor.predict(images, crop=False)):
-        print(f"{path.name}: {label} ({score:.1%})")
+    for path, image, (label, score, p_bad) in zip(paths, images, predictor.predict(images, crop=False)):
+        print(f"{path.name}: {label} ({score:.1%})  bad 信心度={p_bad:.1%}")
         if args.save_dir:
-            save_result(image, label, score, args.save_dir / f"{path.stem}_{label}.jpg")
+            save_result(image, label, score, p_bad, args.save_dir / f"{path.stem}_{label}.jpg")
     if args.save_dir:
         print(f"Annotated images saved to: {args.save_dir}")
 
