@@ -5,3 +5,4 @@ torchvision==0.20.1
 numpy>=1.26
 pillow>=10.0
 matplotlib>=3.8
+opencv-python>=4.8

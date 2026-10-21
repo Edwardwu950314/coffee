@@ -8,7 +8,7 @@ class CoffeeBeanClassifier(nn.Module):
     影像分類模型：輸入一張咖啡豆照片，輸出它屬於各個缺陷類別的分數。
     """
 
-    def __init__(self, num_classes=18, pretrained=True, arch="resnet50", dropout=0.0):
+    def __init__(self, num_classes=2, pretrained=True, arch="resnet50", dropout=0.0):
         super().__init__()
         self.arch = arch
 
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     # 這段只有直接執行 `python model.py` 時才會跑，
     # 用假資料快速檢查模型輸入輸出的形狀對不對，方便偵錯。
     mock_input = torch.randn(2, 3, 224, 224)  # 假裝有 2 張 224x224 的彩色圖片
-    model = CoffeeBeanClassifier(num_classes=18, pretrained=False)
+    model = CoffeeBeanClassifier(num_classes=2, pretrained=False)
     logits = model(mock_input)
     print(f"input shape: {mock_input.shape}")
-    print(f"output shape: {logits.shape}")  # 應該會是 (2, 18)：2張圖，各18個類別分數
+    print(f"output shape: {logits.shape}")  # 應該會是 (2, 2)：2張圖，各2個類別分數
