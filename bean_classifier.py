@@ -25,7 +25,7 @@ SERIAL_PORT = "/dev/ttyACM0"
 BAUD_RATE = 115200
 
 # USB 相機填編號（通常是 0）；CSI 相機請改成 GStreamer 字串並把 CAMERA_BACKEND 改成 cv2.CAP_GSTREAMER。
-CAMERA_SOURCE = 0
+CAMERA_SOURCE = "http://192.168.1.146:8080/video"  # 手機 IP Webcam 串流；改回 0 就是 USB 相機
 CAMERA_BACKEND = cv2.CAP_ANY
 
 # 模型：水洗 water / 日曬 sun / 蜜處理 honey，檔案放在 models/<method>/best.pth。
