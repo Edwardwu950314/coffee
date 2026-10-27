@@ -1,4 +1,6 @@
 import argparse
+import os
+import sys
 import time
 
 import cv2
@@ -9,7 +11,12 @@ from predict import CROP_SIZE, METHODS, Predictor
 
 METHOD_NAMES = {"water": "水洗", "sun": "日曬", "honey": "蜜處理"}
 LABEL_NAMES = {"good": "好豆", "bad": "壞豆"}
-FONT_PATH = "C:/Windows/Fonts/msjh.ttc"  # 微軟正黑體，OpenCV 的 putText 不支援中文所以改用 PIL 畫字
+# 微軟正黑體 / Linux 的 Noto CJK；OpenCV 的 putText 不支援中文所以改用 PIL 畫字
+FONT_CANDIDATES = ["C:/Windows/Fonts/msjh.ttc",
+                   "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                   "/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",
+                   "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc"]
+FONT_PATH = next((f for f in FONT_CANDIDATES if os.path.exists(f)), None)
 
 
 ROTATIONS = {90: cv2.ROTATE_90_CLOCKWISE, 180: cv2.ROTATE_180, 270: cv2.ROTATE_90_COUNTERCLOCKWISE}
@@ -18,7 +25,8 @@ ROTATIONS = {90: cv2.ROTATE_90_CLOCKWISE, 180: cv2.ROTATE_180, 270: cv2.ROTATE_9
 def draw_text(frame, text, xy, color, size=28):
     """在 OpenCV 影像（BGR）上畫中文字。"""
     img = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-    ImageDraw.Draw(img).text(xy, text, font=ImageFont.truetype(FONT_PATH, size), fill=color[::-1])
+    font = ImageFont.truetype(FONT_PATH, size) if FONT_PATH else ImageFont.load_default()
+    ImageDraw.Draw(img).text(xy, text, font=font, fill=color[::-1])
     return cv2.cvtColor(np.asarray(img), cv2.COLOR_RGB2BGR)
 
 
@@ -90,7 +98,12 @@ def main():
     parser.add_argument("--width", type=int, default=1280, help="Capture width")
     parser.add_argument("--height", type=int, default=720, help="Capture height")
     parser.add_argument("--focus", type=int, default=None, help="Start in manual focus with this value (usually 0~255)")
+    parser.add_argument("--headless", action="store_true",
+                        help="No window (for SSH): print counts and save the annotated frame to --out. Auto-enabled on Linux without DISPLAY")
+    parser.add_argument("--out", default="latest.jpg", help="Headless: file the annotated frame is saved to")
+    parser.add_argument("--save-every", type=float, default=1.0, help="Headless: seconds between saves")
     args = parser.parse_args()
+    headless = args.headless or (sys.platform.startswith("linux") and not os.environ.get("DISPLAY"))
 
     predictors = {}
 
@@ -119,9 +132,12 @@ def main():
         if not autofocus:
             cap.set(cv2.CAP_PROP_FOCUS, focus)
 
-    last_time, results = 0.0, []
-    print("按鍵：1 水洗 / 2 日曬 / 3 蜜處理 / 空白鍵 暫停 / s 存圖 / q 離開")
-    if not is_url:
+    last_time, last_saved, results = 0.0, 0.0, []
+    if headless:
+        print(f"Headless 模式：Ctrl+C 離開，標註影像存到 {args.out}")
+    else:
+        print("按鍵：1 水洗 / 2 日曬 / 3 蜜處理 / 空白鍵 暫停 / s 存圖 / q 離開")
+    if not is_url and not headless:
         print("對焦：f 切換自動/手動對焦 / [ ] 手動調整焦距 / p 開啟相機驅動設定視窗")
     paused, frozen = False, None
     while True:
@@ -162,6 +178,12 @@ def main():
         focus_text = "手機串流" if is_url else ("自動對焦" if autofocus else f"手動對焦 {focus}")
         display = draw_text(display, f"處理法：{METHOD_NAMES[method]}　{focus_text}" + ("（暫停）" if paused else ""),
                             (10, 5), (255, 255, 0), size=22)
+        if headless:
+            if now - last_saved >= args.save_every:
+                cv2.imwrite(args.out, display)
+                print(f"好豆 {len(results) - n_bad}　壞豆 {n_bad}", flush=True)
+                last_saved = now
+            continue
         cv2.imshow("Coffee Bean Detector", display)
 
         key = cv2.waitKey(1) & 0xFF
@@ -196,8 +218,12 @@ def main():
                 print(e)
 
     cap.release()
-    cv2.destroyAllWindows()
+    if not headless:
+        cv2.destroyAllWindows()
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        pass
