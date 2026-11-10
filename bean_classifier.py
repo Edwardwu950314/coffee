@@ -8,6 +8,7 @@
 
 import os
 import queue
+import sys
 import threading
 import time
 
@@ -16,6 +17,12 @@ import numpy as np
 import serial
 import torch
 from PIL import Image
+
+try:
+    import termios
+    import tty
+except ImportError:  # 沒有終端機鍵盤輸入（例如 Windows）就不啟用按鍵功能
+    termios = None
 
 from dataset import PROJECT_ROOT, build_transform
 from model import load_checkpoint
@@ -128,6 +135,7 @@ class BeanModel:
     """訓練好的好豆 / 壞豆分類模型，前處理與訓練（predict.py）完全相同。"""
 
     def __init__(self, method=METHOD):
+        self.method = method
         path = PROJECT_ROOT / "models" / method / "best.pth"
         if not path.exists():
             raise FileNotFoundError("找不到模型 {}，請先訓練：python train.py --method {}".format(path, method))
@@ -145,12 +153,75 @@ class BeanModel:
         return torch.softmax(self.model(x), dim=1)[0, self.bad_index].item()
 
 
-def load_model():
-    """程式啟動時只呼叫一次：載入 AI 模型，並先用一張影像跑一次推論暖機。"""
-    model = BeanModel()
+def load_model(method=METHOD):
+    """載入某個處理法的 AI 模型，並先用一張影像跑一次推論暖機。"""
+    model = BeanModel(method)
     model.p_bad(np.full((480, 640, 3), 200, dtype=np.uint8))  # 第一次推論特別慢（CUDA 初始化等），先跑掉
-    print("模型已載入：{}（{}），裝置：{}".format(METHOD, model.class_names, model.device))
+    print("模型已載入：{}（{}），裝置：{}".format(method, model.class_names, model.device))
     return model
+
+
+METHODS = ("water", "sun", "honey")  # 按鍵 1 / 2 / 3 對應水洗 / 日曬 / 蜜處理
+METHOD_NAMES = {"water": "水洗", "sun": "日曬", "honey": "蜜處理"}
+
+
+class Controls:
+    """終端機按鍵：1 水洗 / 2 日曬 / 3 蜜處理 / 空白鍵 暫停（凍結畫面）/ s 存圖 / q 離開。
+
+    模型是共用的，切換時換掉 model 即可；辨識執行緒每顆豆子都會重新讀取目前的模型。
+    """
+
+    def __init__(self, model, camera):
+        self.model = model
+        self.camera = camera
+        self.paused = False
+        self.frozen = None
+        self.quit = threading.Event()
+
+    def frame(self):
+        """辨識與存圖用的畫面；暫停時一直是凍結的那一張。"""
+        if self.paused and self.frozen is not None:
+            return self.frozen.copy()
+        return self.camera.read()
+
+    def handle(self, key):
+        if key == "q":
+            self.quit.set()
+        elif key == " ":
+            self.paused = not self.paused
+            self.frozen = self.camera.read() if self.paused else None
+            print("暫停（畫面凍結）" if self.paused else "繼續")
+        elif key == "s":
+            frame = self.frame()
+            if frame is None:
+                print("沒有相機畫面，無法存圖")
+            else:
+                path = "capture_{}.png".format(int(time.time()))
+                cv2.imwrite(path, frame)
+                print("saved", path)
+        elif key in ("1", "2", "3"):
+            method = METHODS[int(key) - 1]
+            if method == self.model.method:
+                return
+            try:
+                self.model = load_model(method)
+                print("處理法：{}".format(METHOD_NAMES[method]))
+            except FileNotFoundError as error:
+                print(error)
+
+    def run(self):
+        """在背景執行緒讀鍵盤（不用按 Enter）；stdin 不是終端機時什麼都不做。"""
+        if termios is None or not sys.stdin.isatty():
+            return
+        print("按鍵：1 水洗 / 2 日曬 / 3 蜜處理 / 空白鍵 暫停 / s 存圖 / q 離開")
+        fd = sys.stdin.fileno()
+        old = termios.tcgetattr(fd)
+        try:
+            tty.setcbreak(fd)
+            while not self.quit.is_set():
+                self.handle(sys.stdin.read(1))
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old)
 
 
 def classify_bean(model, frame):
@@ -171,7 +242,7 @@ def parse_request(line):
     return None
 
 
-def classify_worker(model, jobs, link):
+def classify_worker(controls, jobs, link):
     while True:
         bean_id, received_at, frame = jobs.get()
 
@@ -180,7 +251,7 @@ def classify_worker(model, jobs, link):
             result = "BAD"
         else:
             try:
-                result = classify_bean(model, frame)
+                result = classify_bean(controls.model, frame)
             except Exception as error:
                 print("豆子 {}：辨識發生錯誤（{}），回傳 BAD".format(bean_id, error))
                 result = "BAD"
@@ -206,19 +277,21 @@ def main():
 
     model = load_model()
     camera = LatestFrameCamera(CAMERA_SOURCE, CAMERA_BACKEND)
+    controls = Controls(model, camera)
     jobs = queue.Queue()
     link = ArduinoLink()
 
-    worker = threading.Thread(target=classify_worker, args=(model, jobs, link), daemon=True)
+    worker = threading.Thread(target=classify_worker, args=(controls, jobs, link), daemon=True)
     worker.start()
+    threading.Thread(target=controls.run, daemon=True).start()
 
     def capture(bean_id, received_at):
-        jobs.put((bean_id, received_at, camera.read()))
+        jobs.put((bean_id, received_at, controls.frame()))
 
     port = link.connect()
     buffer = b""
     try:
-        while True:
+        while not controls.quit.is_set():
             try:
                 chunk = port.read(port.in_waiting or 1)
             except serial.SerialException as error:
