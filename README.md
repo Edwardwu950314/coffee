@@ -87,6 +87,20 @@ python predict.py --method sun --image 資料夾/        # 也可以給資料夾
 
 輸入整張原照片即可，會自動裁出豆子；已裁好的圖加 `--no-crop`。程式中可用 `Predictor("water").predict([PIL 圖片])`。
 
+### 4. 網頁介面（電腦版，不需要 Orin / Arduino）
+
+```bash
+python web_app.py                                   # 手機串流（預設網址同 webcam.py）
+python web_app.py --source 0                        # 電腦 webcam
+python web_app.py --source "2026-10-21 21-10-19.mp4"  # 影片檔，播完重頭播
+python web_app.py --lan                             # 同網路的手機 / 筆電也能連
+```
+
+啟動後自動開啟瀏覽器（`http://localhost:8000`，`--port` 可改、`--no-browser` 不自動開）。畫面有即時影像、好壞豆統計、
+處理法切換、壞豆門檻滑桿、暫停 / 存圖 / 重置、最近辨識紀錄。每顆豆子累積 `--samples` 次辨識後定案並計入統計，同一顆不會重複計算。
+
+Orin 版（`bean_classifier.py`）啟動時也會開同一個網頁介面（`WEB_ENABLED` / `WEB_PORT`）。介面程式在 `web_ui.py`。
+
 ## 新增日曬 / 蜜處理
 
 1. 照片放進 `coffee/sun/{good,bad}`（或 `honey`）。

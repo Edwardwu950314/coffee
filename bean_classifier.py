@@ -27,6 +27,11 @@ except ImportError:  # 沒有終端機鍵盤輸入（例如 Windows）就不啟�
 from dataset import PROJECT_ROOT, build_transform
 from model import load_checkpoint
 from beans import Tracker, crop_square, find_beans
+from web_ui import Stats, start_web_ui
+
+# 網頁介面：Orin 螢幕開瀏覽器連 http://localhost:WEB_PORT，其他裝置連 http://<Orin 的 IP>:WEB_PORT。不需要就改成 False。
+WEB_ENABLED = True
+WEB_PORT = 8000
 
 SERIAL_PORT = "/dev/ttyACM0"
 BAUD_RATE = 115200
@@ -127,6 +132,10 @@ class ArduinoLink:
                 port.close()
             except serial.SerialException:
                 pass
+
+    @property
+    def connected(self):
+        return self._port is not None
 
     def send(self, text):
         with self._lock:
@@ -240,12 +249,34 @@ class Controls:
     模型是共用的，切換時換掉 model 即可；辨識執行緒每顆豆子都會重新讀取目前的模型。
     """
 
-    def __init__(self, model, vision):
+    def __init__(self, model, vision, link=None):
         self.model = model
         self.vision = vision
+        self.link = link
+        self.stats = Stats()
+        self.threshold = BAD_THRESHOLD  # 可由網頁介面即時調整
+        self.loading = False            # 正在載入模型（網頁介面顯示用）
         self.paused = False
         self.frozen = None
         self.quit = threading.Event()
+
+    # ---- 網頁介面使用的介面 ----
+    def handle_key(self, key):
+        self.handle(key)
+
+    def set_threshold(self, value):
+        self.threshold = min(max(value, 0.0), 1.0)
+        print("壞豆門檻：{:.2f}".format(self.threshold))
+
+    def state_info(self):
+        return {
+            "method": self.model.method,
+            "loading": self.loading,
+            "paused": self.paused,
+            "threshold": self.threshold,
+            "camera_ok": self.vision.annotated() is not None,
+            "arduino_ok": bool(self.link and self.link.connected),
+        }
 
     def frame(self):
         """預覽與存圖用的畫面（含框）；暫停時一直是凍結的那一張。"""
@@ -270,13 +301,16 @@ class Controls:
                 print("saved", path)
         elif key in ("1", "2", "3"):
             method = METHODS[int(key) - 1]
-            if method == self.model.method:
+            if method == self.model.method or self.loading:
                 return
+            self.loading = True
             try:
                 self.model = load_model(method)
                 print("處理法：{}".format(METHOD_NAMES[method]))
             except FileNotFoundError as error:
                 print(error)
+            finally:
+                self.loading = False
 
     def run(self):
         """在背景執行緒讀鍵盤（不用按 Enter）；stdin 不是終端機時什麼都不做。"""
@@ -293,10 +327,10 @@ class Controls:
             termios.tcsetattr(fd, termios.TCSADRAIN, old)
 
 
-def classify_bean(model, image):
+def classify_bean(model, image, threshold=BAD_THRESHOLD):
     """回傳 ("GOOD" 或 "BAD", 壞豆機率)。"""
     p_bad = model.p_bad(image)
-    return ("BAD" if p_bad >= BAD_THRESHOLD else "GOOD"), p_bad
+    return ("BAD" if p_bad >= threshold else "GOOD"), p_bad
 
 
 def parse_request(line):
@@ -316,16 +350,19 @@ def classify_worker(controls, jobs, link):
     while True:
         bean_id, received_at, track, image, frame = jobs.get()
         p_bad = None
+        note = ""
 
         if image is None:
             print("豆子 {}：畫面裡找不到新的豆子，回傳 BAD".format(bean_id))
             result = "BAD"
+            note = "not_found"
         else:
             try:
-                result, p_bad = classify_bean(controls.model, image)
+                result, p_bad = classify_bean(controls.model, image, controls.threshold)
             except Exception as error:
                 print("豆子 {}：辨識發生錯誤（{}），回傳 BAD".format(bean_id, error))
                 result = "BAD"
+                note = "error"
 
         if result not in ("GOOD", "BAD"):
             print("豆子 {}：辨識結果 {!r} 不是 GOOD/BAD，回傳 BAD".format(bean_id, result))
@@ -337,10 +374,11 @@ def classify_worker(controls, jobs, link):
 
         sent = link.send("{},{}\n".format(result, bean_id))
         elapsed = time.monotonic() - received_at
-        note = "（太慢！）" if elapsed > SLOW_WARNING_S else ""
+        slow = "（太慢！）" if elapsed > SLOW_WARNING_S else ""
         status = "" if sent else "（未送出）"
         shown = "" if p_bad is None else "（壞豆機率 {:.0%}）".format(p_bad)
-        print("豆子 {} -> {}{}，耗時 {:.0f} ms{}{}".format(bean_id, result, shown, elapsed * 1000, note, status))
+        print("豆子 {} -> {}{}，耗時 {:.0f} ms{}{}".format(bean_id, result, shown, elapsed * 1000, slow, status))
+        controls.stats.add(bean_id, result, p_bad, image, elapsed * 1000, note)
 
         if SAVE_DIR and frame is not None:
             filename = "{:05d}_{}_{}.jpg".format(bean_id, result, int(time.time() * 1000))
@@ -372,9 +410,11 @@ def main():
     model = load_model()
     camera = LatestFrameCamera(CAMERA_SOURCE, CAMERA_BACKEND)
     vision = Vision(camera)
-    controls = Controls(model, vision)
-    jobs = queue.Queue()
     link = ArduinoLink()
+    controls = Controls(model, vision, link)
+    jobs = queue.Queue()
+    if WEB_ENABLED:
+        start_web_ui(controls, WEB_PORT)
 
     worker = threading.Thread(target=classify_worker, args=(controls, jobs, link), daemon=True)
     worker.start()
