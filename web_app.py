@@ -35,7 +35,7 @@ class BeanApp:
 
     def __init__(self, args):
         self.args = args
-        self.stats = Stats()
+        self.stats_by_method = {m: Stats() for m in METHODS}  # 三種處理法各自計數
         self.threshold = args.bad_threshold
         self.method = args.method
         self.loading = False
@@ -62,10 +62,16 @@ class BeanApp:
         self._frozen = None     # 暫停時凍結的已標註畫面
         self._results = []      # 最近一次辨識的 [(box, p_bad, track_id, final_result)]
         self._tracker = Tracker(max_missed=args.max_missed)
+        self._proc = threading.Lock()   # 一輪偵測 / 辨識；重置追蹤器時要等它做完
         self._busy = threading.Lock()
         self._running = True
         threading.Thread(target=self._read_loop, daemon=True).start()
         threading.Thread(target=self._detect_loop, daemon=True).start()
+
+    @property
+    def stats(self):
+        """目前處理法的統計（網頁畫面顯示、重置的對象）。"""
+        return self.stats_by_method[self.method]
 
     # ---- 模型 ----
     def _get_predictor(self, method):
@@ -99,11 +105,13 @@ class BeanApp:
             if self.paused or self.loading:
                 time.sleep(0.05)
                 continue
+            method = self.method  # 這一輪用的處理法；結果記到它自己的統計
             with self._lock:
                 frame = None if self._frame is None else self._frame.copy()
             if frame is None:
                 time.sleep(0.05)
                 continue
+            self._proc.acquire()  # 與 reset() 互斥，重置時不會有一輪辨識把舊豆子又記進統計
             try:
                 pil = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
                 boxes = find_beans(frame)
@@ -112,17 +120,19 @@ class BeanApp:
                 todo = [(t, b) for t, b in zip(tracks, boxes) if t.result is None]
                 if todo:
                     crops = [crop_square(pil, box, CROP_SIZE) for _, box in todo]
-                    outputs = self._get_predictor(self.method).predict(crops, crop=False)
+                    outputs = self._get_predictor(method).predict(crops, crop=False)
                     for (t, _), crop, (_, _, p_bad) in zip(todo, crops, outputs):
                         t.probs.append(p_bad)
                         t.crop = crop
                         if len(t.probs) >= samples:
                             t.result = "BAD" if t.p_bad >= self.threshold else "GOOD"
                             t.p_bad_result = t.p_bad
-                            self.stats.add(t.id, t.result, t.p_bad, crop)
+                            self.stats_by_method[method].add(t.id, t.result, t.p_bad, crop)
                 self._results = [(t.box, t.p_bad, t.id, t.result) for t in tracks]
             except Exception as error:  # 單次失敗不要讓整個辨識停掉
                 print("辨識發生錯誤：{}".format(error))
+            finally:
+                self._proc.release()
             time.sleep(max(0.0, self.args.interval - (time.time() - started)))
 
     # ---- web_ui 需要的介面 ----
@@ -146,10 +156,22 @@ class BeanApp:
     def state_info(self):
         return {"method": self.method, "loading": self.loading, "paused": self.paused,
                 "threshold": self.threshold, "camera_ok": self._frame is not None,
-                "arduino_ok": None, "mode": self.mode, "hint": self.hint}
+                "arduino_ok": None, "mode": self.mode, "hint": self.hint,
+                "counts": {m: s.snapshot()["total"] for m, s in self.stats_by_method.items()}}
 
     def set_threshold(self, value):
         self.threshold = min(max(value, 0.0), 1.0)
+
+    def _reset_tracking(self):
+        """重建追蹤器：編號從 1 重新開始，畫面上的豆子會被當成新豆子重新辨識。"""
+        with self._proc:
+            self._tracker = Tracker(max_missed=self.args.max_missed)
+            self._results = []
+
+    def reset(self):
+        """網頁的「重置計數」：目前處理法的統計歸零，編號也從 1 開始。"""
+        self.stats.reset()
+        self._reset_tracking()
 
     def handle_key(self, key):
         if key == " ":
@@ -172,8 +194,7 @@ class BeanApp:
             try:
                 self._get_predictor(method)
                 self.method = method
-                self._tracker = Tracker(max_missed=self.args.max_missed)  # 換模型後豆子重新辨識
-                self._results = []
+                self._reset_tracking()  # 換模型後豆子重新辨識
                 print("處理法：{}".format(method))
             except FileNotFoundError as error:
                 print(error)

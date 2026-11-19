@@ -185,7 +185,8 @@ def _make_handler(app):
             elif path == "/api/save":
                 app.handle_key("s")
             elif path == "/api/reset":
-                app.stats.reset()
+                # 電腦版（web_app）還要一併重建追蹤器讓編號歸零；Orin 版的編號由 Arduino 決定，只清統計
+                (getattr(app, "reset", None) or app.stats.reset)()
             elif path == "/api/threshold":
                 try:
                     app.set_threshold(float(body.get("value")))
@@ -296,7 +297,7 @@ button:focus-visible,input:focus-visible{outline:3px solid #7cb7ff;outline-offse
 
   <div class="stack">
     <section class="panel">
-      <h2>統計</h2>
+      <h2>統計（目前處理法：<span id="stat-m">—</span>）</h2>
       <div class="counts">
         <div class="count good"><div class="n" id="n-good">0</div><div class="l">好豆 GOOD</div></div>
         <div class="count bad"><div class="n" id="n-bad">0</div><div class="l">壞豆 BAD</div></div>
@@ -345,7 +346,7 @@ button:focus-visible,input:focus-visible{outline:3px solid #7cb7ff;outline-offse
 <script>
 const $ = id => document.getElementById(id);
 const NAMES = {water:"水洗", sun:"日曬", honey:"蜜處理"};
-let thDragging = false, lastSeq = -1, fails = 0;
+let thDragging = false, lastSeq = "", fails = 0, curMethod = "";
 
 function toast(msg){ const t=$("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toast.h); toast.h=setTimeout(()=>t.classList.remove("show"),1800); }
 async function post(path, body){
@@ -375,11 +376,15 @@ function render(s){
   document.querySelectorAll("[data-m]").forEach(b=>{
     b.classList.toggle("active", b.dataset.m === s.method);
     b.disabled = !!s.loading;
+    const n = s.counts ? s.counts[b.dataset.m] : null;  // 各處理法各自的累計顆數
+    b.textContent = NAMES[b.dataset.m] + (n == null ? "" : "（" + n + "）");
   });
+  curMethod = s.method;
+  $("stat-m").textContent = NAMES[s.method] || s.method;
   $("b-pause").textContent = s.paused ? "▶ 繼續畫面" : "⏸ 暫停畫面";
   if(!thDragging){ $("th").value = s.threshold; $("th-v").textContent = s.threshold.toFixed(2); }
 
-  const top = st.recent.length ? st.recent[0].seq : 0;
+  const top = s.method + ":" + (st.recent.length ? st.recent[0].seq : 0);  // 換處理法時紀錄也要重畫
   if(top !== lastSeq){
     lastSeq = top;
     const log = $("log");
@@ -406,7 +411,7 @@ async function poll(){
 document.querySelectorAll("[data-m]").forEach(b=> b.onclick = async ()=>{ await post("/api/method",{method:b.dataset.m}); toast("切換到 " + NAMES[b.dataset.m]); });
 $("b-pause").onclick = ()=> post("/api/pause");
 $("b-save").onclick = async ()=>{ if(await post("/api/save")) toast("已存圖到主機"); };
-$("b-reset").onclick = async ()=>{ if(confirm("確定要把計數歸零嗎？")){ await post("/api/reset"); lastSeq=-1; toast("已重置"); } };
+$("b-reset").onclick = async ()=>{ if(confirm("確定要把「" + (NAMES[curMethod]||curMethod) + "」的計數歸零嗎？（其他處理法不受影響）")){ await post("/api/reset"); lastSeq=""; toast("已重置 " + (NAMES[curMethod]||curMethod)); } };
 $("th").oninput = e=>{ thDragging = true; $("th-v").textContent = (+e.target.value).toFixed(2); };
 $("th").onchange = async e=>{ await post("/api/threshold",{value:+e.target.value}); thDragging = false; };
 poll();

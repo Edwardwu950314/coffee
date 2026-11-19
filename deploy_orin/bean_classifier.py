@@ -253,12 +253,17 @@ class Controls:
         self.model = model
         self.vision = vision
         self.link = link
-        self.stats = Stats()
+        self.stats_by_method = {m: Stats() for m in METHODS}  # 三種處理法各自計數
         self.threshold = BAD_THRESHOLD  # 可由網頁介面即時調整
         self.loading = False            # 正在載入模型（網頁介面顯示用）
         self.paused = False
         self.frozen = None
         self.quit = threading.Event()
+
+    @property
+    def stats(self):
+        """目前處理法的統計（網頁畫面顯示、重置的對象）。"""
+        return self.stats_by_method[self.model.method]
 
     # ---- 網頁介面使用的介面 ----
     def handle_key(self, key):
@@ -276,6 +281,7 @@ class Controls:
             "threshold": self.threshold,
             "camera_ok": self.vision.annotated() is not None,
             "arduino_ok": bool(self.link and self.link.connected),
+            "counts": {m: s.snapshot()["total"] for m, s in self.stats_by_method.items()},
         }
 
     def frame(self):
@@ -349,6 +355,7 @@ def parse_request(line):
 def classify_worker(controls, jobs, link):
     while True:
         bean_id, received_at, track, image, frame = jobs.get()
+        model = controls.model  # 這顆用哪個模型辨識，就記到那個處理法的統計
         p_bad = None
         note = ""
 
@@ -358,7 +365,7 @@ def classify_worker(controls, jobs, link):
             note = "not_found"
         else:
             try:
-                result, p_bad = classify_bean(controls.model, image, controls.threshold)
+                result, p_bad = classify_bean(model, image, controls.threshold)
             except Exception as error:
                 print("豆子 {}：辨識發生錯誤（{}），回傳 BAD".format(bean_id, error))
                 result = "BAD"
@@ -378,7 +385,7 @@ def classify_worker(controls, jobs, link):
         status = "" if sent else "（未送出）"
         shown = "" if p_bad is None else "（壞豆機率 {:.0%}）".format(p_bad)
         print("豆子 {} -> {}{}，耗時 {:.0f} ms{}{}".format(bean_id, result, shown, elapsed * 1000, slow, status))
-        controls.stats.add(bean_id, result, p_bad, image, elapsed * 1000, note)
+        controls.stats_by_method[model.method].add(bean_id, result, p_bad, image, elapsed * 1000, note)
 
         if SAVE_DIR and frame is not None:
             filename = "{:05d}_{}_{}.jpg".format(bean_id, result, int(time.time() * 1000))
