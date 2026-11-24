@@ -21,3 +21,7 @@ VOCdevkit/
 
 # 編輯器
 .vscode/
+
+# 大型檔案與截圖（不進版本控制）
+*.mp4
+capture_*.png
