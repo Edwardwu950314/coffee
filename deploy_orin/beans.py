@@ -69,6 +69,7 @@ class Track:
         self.velocity = (0.0, 0.0)  # 每次更新移動的像素數（輸送帶上大致固定）
         self.probs = []
         self.missed = 0
+        self.hits = 1  # 累計被偵測到幾次；太少代表可能只是雜訊，不顯示也不認領
         self.bean_id = None  # 感應器編號；None 代表還沒被認領（還沒對應到任何一次 S）
         self.p_bad_result = None  # 認領時辨識出的壞豆機率
         self.result = None   # 認領後的辨識結果 "GOOD" / "BAD"
@@ -87,7 +88,8 @@ class Track:
 
     def predicted_center(self):
         cx, cy = self.center
-        return cx + self.velocity[0], cy + self.velocity[1]
+        steps = self.missed + 1  # 漏偵測期間豆子仍在移動
+        return cx + self.velocity[0] * steps, cy + self.velocity[1] * steps
 
 
 class Tracker:
@@ -96,7 +98,8 @@ class Tracker:
     配對成功的豆子沿用編號並更新速度；沒配到的新框給新編號；連續 max_missed 次沒出現的編號就刪除。
     """
 
-    def __init__(self, max_missed=3, gate=1.2):
+    def __init__(self, max_missed=8, gate=1.2, smooth=0.5):
+        self.smooth = smooth  # 框的平滑係數：新偵測框的權重，越小越穩
         self.tracks = []
         self.next_id = 1
         self.max_missed = max_missed
@@ -118,11 +121,18 @@ class Tracker:
 
         for bi, track in matched.items():
             old = track.center
-            track.box = boxes[bi]
-            new = track.center
-            track.velocity = (0.5 * track.velocity[0] + 0.5 * (new[0] - old[0]),
-                              0.5 * track.velocity[1] + 0.5 * (new[1] - old[1]))
+            steps = track.missed + 1
+            raw = boxes[bi]
+            # 把舊框依速度推到現在的位置，再與新偵測框混合，避免框大小與位置逐幀抖動
+            dx, dy = track.velocity[0] * steps, track.velocity[1] * steps
+            prev = (track.box[0] + dx, track.box[1] + dy, track.box[2] + dx, track.box[3] + dy)
+            a = self.smooth
+            track.box = tuple(a * r + (1 - a) * p for r, p in zip(raw, prev))
+            new = ((raw[0] + raw[2]) / 2, (raw[1] + raw[3]) / 2)
+            track.velocity = (0.5 * track.velocity[0] + 0.5 * (new[0] - old[0]) / steps,
+                              0.5 * track.velocity[1] + 0.5 * (new[1] - old[1]) / steps)
             track.missed = 0
+            track.hits += 1
         for ti, track in enumerate(self.tracks):
             if ti not in used_t:
                 track.missed += 1

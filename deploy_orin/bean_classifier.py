@@ -45,6 +45,8 @@ ROTATE = 0
 ROTATIONS = {90: cv2.ROTATE_90_CLOCKWISE, 180: cv2.ROTATE_180, 270: cv2.ROTATE_90_COUNTERCLOCKWISE}
 # 收到 S 時，畫面裡還找不到新豆子（還沒進入畫面）最多等多久，仍沒有就回傳 BAD。
 CLAIM_WAIT_S = 0.3
+# 一個新框要連續被偵測到幾次才顯示 / 才能被認領，濾掉只閃一下的雜訊。
+MIN_HITS = 2
 
 # 在螢幕上顯示即時畫面（像 webcam.py 一樣）。Orin 固定接螢幕，所以從 SSH 啟動時預設畫面顯示在 Orin 的螢幕上（DISPLAY=:0）。
 # 沒接螢幕或桌面沒登入時，開視窗失敗會自動關閉預覽，辨識照常運作；不想要預覽就改成 False。
@@ -215,7 +217,7 @@ class Vision:
         deadline = time.monotonic() + CLAIM_WAIT_S
         while True:
             with self._lock:
-                fresh = [t for t in self.tracker.tracks if t.bean_id is None and t.missed == 0]
+                fresh = [t for t in self.tracker.tracks if t.bean_id is None and t.missed == 0 and t.hits >= MIN_HITS]
                 if fresh and self._frame is not None:
                     track = min(fresh, key=lambda t: t.center[0])  # 由左到右，最靠左的就是剛進來的
                     track.bean_id = bean_id
@@ -230,7 +232,8 @@ class Vision:
             if self._frame is None:
                 return None
             display = self._frame.copy()
-            tracks = [(t.box, t.bean_id, t.result, t.p_bad_result) for t in self.tracker.tracks if t.missed == 0]
+            tracks = [(t.box, t.bean_id, t.result, t.p_bad_result) for t in self.tracker.tracks
+                      if t.hits >= MIN_HITS or t.bean_id is not None]  # 短暫漏偵測時框仍保留，不閃爍
         for box, bean_id, result, p_bad in tracks:
             color = (0, 255, 255) if result is None else ((0, 0, 255) if result == "BAD" else (0, 200, 0))
             cv2.rectangle(display, (int(box[0]), int(box[1])), (int(box[2]), int(box[3])), color, 3)

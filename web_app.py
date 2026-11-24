@@ -216,7 +216,7 @@ def main():
     parser.add_argument("--bad-threshold", type=float, default=0.5, help="壞豆機率 >= 此值判 BAD（網頁上可即時調整）")
     parser.add_argument("--interval", type=float, default=0.3, help="每次辨識的間隔秒數")
     parser.add_argument("--samples", type=int, default=5, help="每顆豆子累積幾次辨識後定案")
-    parser.add_argument("--max-missed", type=int, default=3, help="豆子連續幾次沒偵測到就丟掉它的編號")
+    parser.add_argument("--max-missed", type=int, default=8, help="豆子連續幾次沒偵測到就丟掉它的編號")
     parser.add_argument("--port", type=int, default=8000, help="網頁埠號")
     parser.add_argument("--lan", action="store_true", help="允許同網路的其他裝置連線（預設只有本機）")
     parser.add_argument("--no-browser", action="store_true", help="不要自動開啟瀏覽器")

@@ -45,7 +45,7 @@ def main():
     parser.add_argument("--focus", type=int, default=None, help="Start in manual focus with this value (usually 0~255)")
     parser.add_argument("--samples", type=int, default=5,
                         help="Predictions averaged per tracked bean; after this many it is not re-classified")
-    parser.add_argument("--max-missed", type=int, default=3, help="Updates a bean may go undetected before its ID is dropped")
+    parser.add_argument("--max-missed", type=int, default=8, help="Updates a bean may go undetected before its ID is dropped")
     parser.add_argument("--headless", action="store_true",
                         help="No window (for SSH): print counts and save the annotated frame to --out. Auto-enabled on Linux without DISPLAY")
     parser.add_argument("--out", default="latest.jpg", help="Headless: file the annotated frame is saved to")
