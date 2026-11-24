@@ -47,6 +47,12 @@ ROTATIONS = {90: cv2.ROTATE_90_CLOCKWISE, 180: cv2.ROTATE_180, 270: cv2.ROTATE_9
 CLAIM_WAIT_S = 0.3
 # 一個新框要連續被偵測到幾次才顯示 / 才能被認領，濾掉只閃一下的雜訊。
 MIN_HITS = 2
+# 每顆豆子認領後，在 SAMPLE_WINDOW_S 秒內最多辨識 SAMPLES 張（含認領當下那張）再取壞豆機率平均。
+# 從 D3 到擋板約 2.3 秒，窗口要小於這個時間並留餘裕。SAMPLES = 1 就是只辨識認領當下那一張。
+SAMPLES = 5
+SAMPLE_WINDOW_S = 1.2
+SAMPLE_INTERVAL_S = 0.2
+CLASSIFY_THREADS = 4  # 多顆豆子的取樣窗口會重疊，所以用多個辨識執行緒
 
 # 在螢幕上顯示即時畫面（像 webcam.py 一樣）。Orin 固定接螢幕，所以從 SSH 啟動時預設畫面顯示在 Orin 的螢幕上（DISPLAY=:0）。
 # 沒接螢幕或桌面沒登入時，開視窗失敗會自動關閉預覽，辨識照常運作；不想要預覽就改成 False。
@@ -226,6 +232,13 @@ class Vision:
                 return None
             time.sleep(0.02)
 
+    def sample(self, track):
+        """回傳這顆豆子目前的 (畫面, 框)；它這一刻沒被偵測到就回傳 None。"""
+        with self._lock:
+            if self._frame is None or track.missed != 0:
+                return None
+            return self._frame.copy(), track.box
+
     def annotated(self):
         """目前畫面加上每顆豆子的框：黃 = 還沒編號，綠 = GOOD，紅 = BAD，框上寫感應器編號。"""
         with self._lock:
@@ -355,6 +368,21 @@ def parse_request(line):
     return None
 
 
+def sample_more(controls, model, track, first_p_bad, received_at):
+    """在取樣窗口內對同一顆豆子多辨識幾張，回傳所有張數的壞豆機率平均。"""
+    probs = [first_p_bad]
+    deadline = received_at + SAMPLE_WINDOW_S
+    while len(probs) < SAMPLES and time.monotonic() + SAMPLE_INTERVAL_S < deadline:
+        time.sleep(SAMPLE_INTERVAL_S)
+        sample = controls.vision.sample(track)
+        if sample is None:
+            continue
+        frame, box = sample
+        image = crop_square(Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)), box, CROP_SIZE)
+        probs.append(model.p_bad(image))
+    return sum(probs) / len(probs)
+
+
 def classify_worker(controls, jobs, link):
     while True:
         bean_id, received_at, track, image, frame = jobs.get()
@@ -369,6 +397,9 @@ def classify_worker(controls, jobs, link):
         else:
             try:
                 result, p_bad = classify_bean(model, image, controls.threshold)
+                if track is not None and SAMPLES > 1:
+                    p_bad = sample_more(controls, model, track, p_bad, received_at)
+                    result = "BAD" if p_bad >= controls.threshold else "GOOD"
             except Exception as error:
                 print("豆子 {}：辨識發生錯誤（{}），回傳 BAD".format(bean_id, error))
                 result = "BAD"
@@ -426,8 +457,8 @@ def main():
     if WEB_ENABLED:
         start_web_ui(controls, WEB_PORT)
 
-    worker = threading.Thread(target=classify_worker, args=(controls, jobs, link), daemon=True)
-    worker.start()
+    for _ in range(CLASSIFY_THREADS):
+        threading.Thread(target=classify_worker, args=(controls, jobs, link), daemon=True).start()
     threading.Thread(target=controls.run, daemon=True).start()
 
     def capture(bean_id, received_at):

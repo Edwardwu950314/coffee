@@ -54,7 +54,7 @@ def crop_square(pil, box, size, margin=1.5):
     """與訓練資料相同的裁法（見 prepare_dataset.crop_bean）：以豆子為中心、邊長 = 長邊 x 1.5，縮成 size x size。"""
     w, h = pil.size
     cx, cy = (box[0] + box[2]) / 2, (box[1] + box[3]) / 2
-    side = min(max(max(box[2] - box[0], box[3] - box[1]) * margin, size), min(w, h))
+    side = min(max(max(box[2] - box[0], box[3] - box[1]) * margin, 32), min(w, h))  # 不墊到 size：豆子佔裁切圖的比例要和訓練時一致
     left = min(max(cx - side / 2, 0), w - side)
     top = min(max(cy - side / 2, 0), h - side)
     return pil.crop((int(left), int(top), int(left + side), int(top + side))).resize((size, size), Image.LANCZOS)
