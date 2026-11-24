@@ -20,9 +20,9 @@ IMAGENET_STD = [0.229, 0.224, 0.225]
 
 def get_class_names(data_dir):
     """
-    類別名稱 = data_dir 底下每一個子資料夾的名字，例如 data/train/Broken、data/train/Cut ...
+    類別名稱 = data_dir 底下每一個子資料夾的名字，例如 coffee/water/bad、coffee/water/good
     用 sorted() 排序是為了確保每次執行「類別名稱 -> 數字編號」的對應關係都一致，
-    否則今天訓練時 Broken=0，明天推論時 Broken 卻變成 3，模型就會亂猜。
+    否則今天訓練時 bad=0，明天推論時 bad 卻變成 1，模型就會亂猜。
     """
     return sorted([
         name for name in os.listdir(data_dir)
@@ -68,7 +68,7 @@ def build_transform(image_size, train):
 
 def load_split(split_file):
     """
-    讀取 make_split.py 產生的切分檔，回傳 (class_names, {"train": [...], "val": [...], "test": [...]})。
+    讀取 prepare_dataset.py 產生的切分檔（splits/<method>.json），回傳 (class_names, {"train": [...], "val": [...], "test": [...]})。
     每筆樣本是 (圖片絕對路徑, 標籤數字)。切分檔裡存的是相對專案根目錄的路徑，換電腦也能用。
     """
     with open(split_file, "r", encoding="utf-8") as f:
