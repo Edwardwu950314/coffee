@@ -227,7 +227,7 @@ class Vision:
                 if fresh and self._frame is not None:
                     track = min(fresh, key=lambda t: t.center[0])  # 由左到右，最靠左的就是剛進來的
                     track.bean_id = bean_id
-                    return track, self._frame.copy(), track.box
+                    return track, self._frame.copy(), track.raw_box
             if time.monotonic() >= deadline:
                 return None
             time.sleep(0.02)
@@ -237,7 +237,7 @@ class Vision:
         with self._lock:
             if self._frame is None or track.missed != 0:
                 return None
-            return self._frame.copy(), track.box
+            return self._frame.copy(), track.raw_box
 
     def annotated(self):
         """目前畫面加上每顆豆子的框：黃 = 還沒編號，綠 = GOOD，紅 = BAD，框上寫感應器編號。"""

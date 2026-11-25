@@ -4,32 +4,39 @@ import numpy as np
 from PIL import Image
 
 
-def find_beans(frame, min_area_ratio=0.0003, max_area_ratio=0.05):
+def find_beans(frame, min_area_ratio=0.0003, max_area_ratio=0.05, split_area_ratio=0.02):
     """
     依顏色找出畫面中每一顆生豆，回傳 [(l, t, r, b), ...]（原圖座標）。
     生豆是黃綠 / 橄欖色（HSV 色相約 10~45），白紙與灰色金屬飽和度低、藍色零件色相不同，所以能被排除。
     豆子互相碰在一起時，用距離轉換 + watershed 切開。
     """
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    mask = cv2.inRange(hsv, (10, 45, 25), (45, 255, 255))
+    mask = cv2.inRange(hsv, (10, 25, 25), (45, 255, 255))  # 飽和度門檻放低，豆子陰影那一半（S≈40）才不會被漏掉
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
     mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, np.ones((9, 9), np.uint8))
 
-    dist = cv2.distanceTransform(mask, cv2.DIST_L2, 5)
-    if dist.max() == 0:
-        return []
-    _, sure_fg = cv2.threshold(dist, 0.5 * dist.max(), 255, cv2.THRESH_BINARY)
-    sure_fg = sure_fg.astype(np.uint8)
-    unknown = cv2.subtract(cv2.dilate(mask, np.ones((3, 3), np.uint8)), sure_fg)
-    n, markers = cv2.connectedComponents(sure_fg)
-    markers = markers + 1
-    markers[unknown > 0] = 0
-    markers = cv2.watershed(frame, markers)
-
     area = frame.shape[0] * frame.shape[1]
+    # 一般大小的連通區塊直接當一顆豆子；只有特別大（可能黏在一起）的才用 watershed 切開，避免單顆被切成兩塊
+    n_cc, cc = cv2.connectedComponents(mask)
+    regions = []
+    for label in range(1, n_cc):
+        comp = (cc == label).astype(np.uint8) * 255
+        if cv2.countNonZero(comp) <= area * split_area_ratio:
+            regions.append(np.nonzero(comp))
+            continue
+        dist = cv2.distanceTransform(comp, cv2.DIST_L2, 5)
+        _, sure_fg = cv2.threshold(dist, 0.5 * dist.max(), 255, cv2.THRESH_BINARY)
+        sure_fg = sure_fg.astype(np.uint8)
+        unknown = cv2.subtract(cv2.dilate(comp, np.ones((3, 3), np.uint8)), sure_fg)
+        n, markers = cv2.connectedComponents(sure_fg)
+        markers = markers + 1
+        markers[unknown > 0] = 0
+        markers = cv2.watershed(frame, markers)
+        for sub in range(2, n + 1):
+            regions.append(np.nonzero((markers == sub) & (comp > 0)))
+
     boxes = []
-    for label in range(2, n + 1):
-        ys, xs = np.nonzero((markers == label) & (mask > 0))
+    for ys, xs in regions:
         if len(xs) < area * min_area_ratio or len(xs) > area * max_area_ratio:
             continue
         box = (xs.min(), ys.min(), xs.max() + 1, ys.max() + 1)
@@ -65,7 +72,8 @@ class Track:
 
     def __init__(self, track_id, box):
         self.id = track_id
-        self.box = box
+        self.box = box      # 平滑後的框，只用來顯示
+        self.raw_box = box  # 最近一次實際偵測到的原始框，裁圖辨識用
         self.velocity = (0.0, 0.0)  # 每次更新移動的像素數（輸送帶上大致固定）
         self.probs = []
         self.missed = 0
@@ -131,6 +139,7 @@ class Tracker:
             new = ((raw[0] + raw[2]) / 2, (raw[1] + raw[3]) / 2)
             track.velocity = (0.5 * track.velocity[0] + 0.5 * (new[0] - old[0]) / steps,
                               0.5 * track.velocity[1] + 0.5 * (new[1] - old[1]) / steps)
+            track.raw_box = raw
             track.missed = 0
             track.hits += 1
         for ti, track in enumerate(self.tracks):
